@@ -64,7 +64,7 @@ namespace CharpHat.Droid
 			public const int ActionButton = 2131034113;
 			
 			// aapt resource value: 0x7f050002
-			public const int ImageContainer = 2131034114;
+			public const int FrameCameraPreview = 2131034114;
 			
 			// aapt resource value: 0x7f050000
 			public const int relativeLayout1 = 2131034112;

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="CharpHat.CharpHat" android:versionCode="1" android:versionName="1.0">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="CharpHat.CharpHat" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="18" android:targetSdkVersion="18" />
-	<application android:label="CharpHat" android:icon="@drawable/Icon"></application>
+	<application android:label="CharpHat"></application>
+	<uses-permission android:name="android.permission.CAMERA" />
 </manifest>

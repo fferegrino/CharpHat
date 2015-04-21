@@ -12,10 +12,10 @@
         p1:id="@+id/ActionButton"
         p1:layout_alignParentRight="true"
         p1:layout_alignParentBottom="true" />
-    <ImageView
-        p1:src="@android:drawable/ic_menu_gallery"
-        p1:layout_width="386.0dp"
+    <FrameLayout
+        p1:id="@+id/FrameCameraPreview"
+        p1:layout_width="100dp"
         p1:layout_height="match_parent"
         p1:layout_above="@id/ActionButton"
-        p1:id="@+id/ImageContainer" />
+        p1:layout_weight="1" />
 </RelativeLayout>
