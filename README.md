@@ -1,11 +1,4 @@
-Put a cool C# cap on top of your head
-(I still don't know how am I going to do this but...)
-
-
-
-
-
-
+Put a cool C# cap on top of your head as in [this](http://i.imgur.com/sahOBZ6.jpg) picture.
 
 
 
