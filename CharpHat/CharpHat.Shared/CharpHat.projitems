@@ -11,5 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)MyClass.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\BasePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\LandingPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
   </ItemGroup>
 </Project>
