@@ -5,10 +5,10 @@ namespace CharpHat.Pages
 {
 	public class BasePage : ContentPage
 	{
-        public ObservableCollection<ToolbarItem> ToolbarItems { get; set; }
+        public ObservableCollection<ToolbarItem> BaseToolbarItems { get; set; }
 		public BasePage ()
 		{
-            ToolbarItems = new ObservableCollection<ToolbarItem>();
+            BaseToolbarItems = new ObservableCollection<ToolbarItem>();
 		}
 	}
 }

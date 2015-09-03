@@ -153,6 +153,9 @@
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
+  </ItemGroup>
   <Import Project="..\CharpHat\CharpHat.projitems" Label="Shared" Condition="Exists('..\CharpHat\CharpHat.projitems')" />
   <Import Project="..\CharpHat.Shared\CharpHat.projitems" Label="Shared" Condition="Exists('..\CharpHat.Shared\CharpHat.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

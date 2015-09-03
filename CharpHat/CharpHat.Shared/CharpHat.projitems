@@ -9,9 +9,16 @@
     <Import_RootNamespace>CharpHat</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CharpHatApp.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MyClass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\CameraPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\BasePage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\LandingPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\INotifyPropertyChanging.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Controls\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Helpers\" />
   </ItemGroup>
 </Project>
