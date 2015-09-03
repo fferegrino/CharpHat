@@ -3,11 +3,12 @@ using Xamarin.Forms;
 
 namespace CharpHat.Pages
 {
-	public class CameraPage:BasePage 
-	{
+    public class CameraPage : BasePage
+    {
         public CameraPage()
         {
 
+            NavigationPage.SetHasNavigationBar(this, false);
         }
-	}
+    }
 }

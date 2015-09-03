@@ -10,5 +10,6 @@ namespace CharpHat.Pages
 		{
             BaseToolbarItems = new ObservableCollection<ToolbarItem>();
 		}
+
 	}
 }

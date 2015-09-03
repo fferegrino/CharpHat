@@ -10,7 +10,7 @@ namespace CharpHat
     {
         public App()
         {
-            MainPage = new CameraPage();
+            MainPage = new NavigationPage(new LandingPage());
         }
     }
 }

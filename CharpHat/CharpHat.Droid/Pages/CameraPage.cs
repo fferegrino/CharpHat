@@ -3,7 +3,10 @@ using Android.Graphics;
 using Android.Hardware;
 using Android.Views;
 using Android.Widget;
+using CharpHat.Pages;
+using System;
 using System.Collections.ObjectModel;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -31,7 +34,6 @@ namespace CharpHat.Droid.Pages
 
         public CameraPage()
         {
-
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Page> e)
@@ -48,7 +50,7 @@ namespace CharpHat.Droid.Pages
             textureView.SurfaceTextureListener = this;
 
             takePhotoButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.takePhotoButton);
-            //takePhotoButton.Click += TakePhotoButtonTapped;
+            takePhotoButton.Click += TakePhotoButtonTapped;
 
             //switchCameraButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.switchCameraButton);
             //switchCameraButton.Click += SwitchCameraButtonTapped;
@@ -118,6 +120,31 @@ namespace CharpHat.Droid.Pages
             }
 
             camera.StartPreview();
+        }
+
+
+        private async void TakePhotoButtonTapped(object sender, EventArgs e)
+        {
+            camera.StopPreview();
+            //DialogService.ShowLoading("Capturing Every Pixel");
+
+            var image = textureView.Bitmap;
+            using (var imageStream = new MemoryStream())
+            {
+                await image.CompressAsync(Bitmap.CompressFormat.Jpeg, 50, imageStream);
+                image.Recycle();
+                imageBytes = imageStream.ToArray();
+            }
+
+            var navigationPage = new NavigationPage(new ManipulatePhotoPage(imageBytes))
+            {
+                //BarBackgroundColor = Colors.NavigationBarColor,
+                //BarTextColor = Colors.NavigationBarTextColor
+            };
+
+            //DialogService.HideLoading();
+            camera.StartPreview();
+            await App.Current.MainPage.Navigation.PushModalAsync(navigationPage, false);
         }
 
     }

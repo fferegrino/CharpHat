@@ -63,6 +63,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\StickerableImage.cs" />
+    <Compile Include="Controls\StickerView.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Pages\CameraPage.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -84,10 +86,10 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\" />
+    <AndroidResource Include="Resources\drawable-hdpi\TakePhotoButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\TakePhotoButton.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\CSharpHat.png" />
   </ItemGroup>
   <Import Project="..\CharpHat\CharpHat.projitems" Label="Shared" Condition="Exists('..\CharpHat\CharpHat.projitems')" />
   <Import Project="..\CharpHat.Shared\CharpHat.projitems" Label="Shared" Condition="Exists('..\CharpHat.Shared\CharpHat.projitems')" />
