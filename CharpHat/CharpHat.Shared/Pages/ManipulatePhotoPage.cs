@@ -11,7 +11,7 @@ namespace CharpHat.Pages
     public class ManipulatePhotoPage : BasePage
     {
 
-        RelativeLayout mainLayout;
+        Grid mainLayout;
 
         public ManipulatePhotoPage(byte[] image)
         {
@@ -24,34 +24,53 @@ namespace CharpHat.Pages
         private void SetUpUi()
         {
             NavigationPage.SetHasNavigationBar(this, false);
-            mainLayout = new RelativeLayout()
+            mainLayout = new Grid()
             {
-                Padding = new Thickness(0)
+                Padding = new Thickness(0),
+                RowDefinitions = {
+                                   new RowDefinition{ Height = new GridLength(1, GridUnitType.Star)},
+                                   new RowDefinition{ Height = GridLength.Auto }
+                               }
             };
 
             var pic = new Image
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,
-                Source = ImageSource.FromStream(() => new MemoryStream(ViewModel.Image))
+                Source = ImageSource.FromStream(() => new MemoryStream(ViewModel.Image)),
+
             };
 
             var stickerLayer = new StickerableImage { };
 
+            mainLayout.Children.Add(pic);
+            Grid.SetRowSpan(pic, 2);
+            mainLayout.Children.Add(stickerLayer);
+            Grid.SetRowSpan(stickerLayer, 2);
+
+            //mainLayout.Children.Add(pic,
+            //    Constraint.Constant(0),
+            //    Constraint.Constant(0),
+            //    Constraint.RelativeToParent((parent) => { return parent.Width; }),
+            //    Constraint.RelativeToParent((parent) => { return parent.Height; }));
+
+            //mainLayout.Children.Add(stickerLayer,
+            //    Constraint.Constant(0),
+            //    Constraint.Constant(0),
+            //    Constraint.RelativeToParent((parent) => { return parent.Width; }),
+            //    Constraint.RelativeToParent((parent) => { return parent.Height; }));
 
 
-            mainLayout.Children.Add(pic,
-                Constraint.Constant(0),
-                Constraint.Constant(0),
-                Constraint.RelativeToParent((parent) => { return parent.Width; }),
-                Constraint.RelativeToParent((parent) => { return parent.Height; }));
-
-            mainLayout.Children.Add(stickerLayer,
-                Constraint.Constant(0),
-                Constraint.Constant(0),
-                Constraint.RelativeToParent((parent) => { return parent.Width; }),
-                Constraint.RelativeToParent((parent) => { return parent.Height; }));
-
+            var rotationSlider = new Slider
+            {
+                Maximum = 90,
+                Minimum = -90,
+                Value = 0
+            };
+            rotationSlider.ValueChanged += (object sender, ValueChangedEventArgs e) =>
+            {
+                stickerLayer.RotationFactor = (float)e.NewValue;
+            };
             var scaleSlider = new Slider
             {
                 Maximum = 2,
@@ -62,13 +81,13 @@ namespace CharpHat.Pages
             {
                 stickerLayer.ScaleFactor = (float)e.NewValue;
             };
+            var stackedLayout = new StackLayout
+            {
+                Children = { scaleSlider, rotationSlider }
+            };
 
-
-            mainLayout.Children.Add(scaleSlider,
-            Constraint.Constant(40),
-            Constraint.RelativeToParent((parent) => { return parent.Height - 40; }),
-            Constraint.RelativeToParent(p=> p.Width - 40),
-            Constraint.Constant(30));
+            //mainLayout.Children.Add()
+            mainLayout.Children.Add(stackedLayout, 0, 1);
 
             Content = mainLayout;
         }

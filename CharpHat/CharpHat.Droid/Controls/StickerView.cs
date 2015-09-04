@@ -42,12 +42,26 @@ namespace CharpHat.Droid.Controls
             canvas.DrawBitmap(transformedHatBitmap, fingerX - middleX, fingerY - middleY, drawPaint);
         }
 
-        public void AlterScaleFactor(float scaleFactor)
+        public void AlterScaleFactor(float scaleFactor, float rotation)
         {
             //transformedHatBitmap.Recycle();
+            transformedHatBitmap = null;
+
+            // This line here is THE DEVIL:
+            GC.Collect();
             int scaleWidth = (int)(originalHatBitmap.Width* scaleFactor);
             int scaleHeight = (int)(originalHatBitmap.Height * scaleFactor);
-            transformedHatBitmap = Bitmap.CreateScaledBitmap(originalHatBitmap, scaleWidth, scaleHeight, true);
+
+            Matrix matrix = new Matrix();
+            // resize the bit map
+            matrix.PostScale(scaleFactor, scaleFactor);
+            // rotate the Bitmap
+            matrix.PostRotate(rotation);
+
+            // recreate the new Bitmap
+            transformedHatBitmap = Bitmap.CreateBitmap(originalHatBitmap, 0, 0, originalHatBitmap.Width, originalHatBitmap.Height, matrix, true);
+
+            
             
             Invalidate();
         }

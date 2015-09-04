@@ -34,9 +34,9 @@ namespace CharpHat.Droid.Controls
         {
             base.OnElementPropertyChanged(sender, e);
 
-            if (e.PropertyName == StickerableImage.ScaleFactorProperty.PropertyName)
+            if (e.PropertyName == StickerableImage.ScaleFactorProperty.PropertyName || e.PropertyName == StickerableImage.RotationFactorProperty.PropertyName)
             {
-                Control.AlterScaleFactor(Element.ScaleFactor);
+                Control.AlterScaleFactor(Element.ScaleFactor, Element.RotationFactor);
             }
         }
 
