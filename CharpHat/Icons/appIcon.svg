@@ -15,9 +15,9 @@
    id="svg4816"
    version="1.1"
    inkscape:version="0.91 r13725"
-   inkscape:export-filename="C:\Users\fferegrino\Documents\GitHub\xsa\CharpHat\CharpHat\Icons\Android\GooglePlay.png"
-   inkscape:export-xdpi="115.2"
-   inkscape:export-ydpi="115.2"
+   inkscape:export-filename="C:\Users\fferegrino\Documents\GitHub\xsa\CharpHat\CharpHat\CharpHat.WinPhone\Assets\StoreLogo.scale-100.png"
+   inkscape:export-xdpi="11.25"
+   inkscape:export-ydpi="11.25"
    sodipodi:docname="appIcon.svg">
   <defs
      id="defs4818" />
@@ -26,20 +26,21 @@
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="329.13574"
-     inkscape:cy="306.76912"
+     inkscape:zoom="0.35"
+     inkscape:cx="120.13335"
+     inkscape:cy="89.711911"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g4152"
      showgrid="false"
      units="px"
      inkscape:window-width="760"
      inkscape:window-height="405"
-     inkscape:window-x="587"
-     inkscape:window-y="7"
-     inkscape:window-maximized="0" />
+     inkscape:window-x="693"
+     inkscape:window-y="82"
+     inkscape:window-maximized="0"
+     borderlayer="true" />
   <metadata
      id="metadata4821">
     <rdf:RDF>
@@ -56,7 +57,9 @@
      inkscape:label="Capa 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-652.36216)">
+     transform="translate(0,-652.36216)"
+     sodipodi:insensitive="true"
+     style="display:inline">
     <g
        id="g5400"
        transform="matrix(0.96592583,-0.25881905,0.25881905,0.96592583,-380.34208,872.13648)">
@@ -119,6 +122,34 @@
            id="path4744"
            inkscape:connector-curvature="0"
            sodipodi:nodetypes="ccccccccccccccccccccccccccccc" />
+      </g>
+    </g>
+  </g>
+  <g
+     transform="translate(0,-652.36216)"
+     id="g4150"
+     inkscape:groupmode="layer"
+     inkscape:label="Capa 1 copia"
+     style="display:none">
+    <g
+       transform="matrix(0.96592583,-0.25881905,0.25881905,0.96592583,-380.34208,872.13648)"
+       id="g4152">
+      <path
+         style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:10;stroke-miterlimit:0;stroke-dasharray:40, 10;stroke-dashoffset:18;stroke-opacity:1"
+         d="M 149.48828,11.488281 11.488281,250.51172 l 239.023439,138 138,-239.02344 L 149.48828,11.488281 Z m 108.29492,106.662109 4.37696,30.38086 8.91406,-3.40039 5.29492,13.89062 -12.03711,4.5918 3.42578,23.7793 10.88281,-4.15235 5.29493,13.89063 -14.00586,5.34375 5.12304,35.56445 -14.71484,2.11914 -4.64648,-32.25195 -15.58985,5.94922 5.57617,38.70703 -14.71289,2.11914 -5.09765,-35.39453 -11.19531,4.27148 -5.29493,-13.89257 14.31641,-5.4629 -3.42578,-23.77734 -13.16211,5.02149 -5.29492,-13.89063 16.28515,-6.21289 -4.40039,-30.55078 14.71289,-2.11914 3.92383,27.23828 15.58985,-5.94727 -4.85352,-33.69531 14.71484,-2.11914 z m -89.83789,21.91016 c 4.46365,0.0855 8.96347,0.79797 13.4043,2.1289 l -4.74414,17.69532 c -3.54881,-0.83383 -7.12919,-1.12109 -10.65039,-0.85547 l -4.98047,-18.58594 c 1.67629,-0.21843 3.36474,-0.34513 5.06055,-0.38086 0.63592,-0.0134 1.27249,-0.0142 1.91015,-0.002 z m -21.22656,4.61914 5.01758,18.73047 c -9.19174,5.30758 -15.90027,14.88652 -18.68945,26.68359 l -15.90235,-4.26367 c 3.77074,-18.8396 14.60033,-33.90797 29.57422,-41.15039 z m 103.375,24.36719 -15.58984,5.94726 3.42578,23.77734 15.58984,-5.94726 -3.42578,-23.77734 z m -134.37891,31.79687 16.00782,4.28125 c 0.17985,4.16179 0.8121,8.33169 1.88672,12.4043 2.18565,8.09146 6.05057,15.58157 11.2207,21.74804 l -8.66211,15.00391 c -8.24701,-8.99116 -14.39639,-20.32219 -17.73242,-32.68555 -1.80256,-6.81253 -2.72033,-13.81462 -2.72071,-20.75195 z m 91.01368,36.1543 15.02539,8.67578 c -2.96341,5.83892 -6.74311,10.98947 -11.19922,15.25586 l -9.44531,-16.36328 c 2.12364,-2.24249 4.00783,-4.78108 5.61914,-7.56836 z m -50.5254,12.31054 c 9.12015,5.71354 19.37334,7.47485 28.83204,4.95703 1.27413,-0.35669 2.52624,-0.78914 3.75195,-1.29687 l 9.53125,16.51367 c -2.6824,1.34354 -5.47164,2.42061 -8.34375,3.2168 -13.99383,3.74614 -29.20871,0.74492 -42.43555,-8.37305 l 8.66406,-15.01758 z"
+         transform="matrix(0.96592571,0.25881902,-0.25881902,0.96592571,424.26402,-113.84592)"
+         id="path4154"
+         inkscape:export-filename="C:\Users\fferegrino\Documents\GitHub\xsa\CharpHat\CharpHat\CharpHat.WinPhone\Assets\Square44x44Logo.scale-240.png"
+         inkscape:export-xdpi="25.299999"
+         inkscape:export-ydpi="25.299999"
+         inkscape:connector-curvature="0" />
+      <g
+         style="display:inline"
+         id="g4156"
+         transform="matrix(3.2132035,0,0,3.2132035,-530.75943,-2755.7063)">
+        <g
+           transform="translate(128.10765,82.963726)"
+           id="g4158" />
       </g>
     </g>
   </g>
