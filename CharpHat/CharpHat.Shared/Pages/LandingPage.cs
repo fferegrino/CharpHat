@@ -8,7 +8,9 @@ namespace CharpHat.Pages
 {
     public class LandingPage : BasePage
     {
+    
         Button newTakeButton;
+        Button aboutButton;
 
         public LandingPage()
         {
@@ -16,6 +18,12 @@ namespace CharpHat.Pages
             newTakeButton.Clicked += async (sender, args) =>
             {
                 await App.Current.MainPage.Navigation.PushAsync(new CameraPage());
+            };
+
+            aboutButton = new Button { Text = "Acerca de" };
+            aboutButton.Clicked += async (sender, args) =>
+            {
+                await App.Current.MainPage.Navigation.PushAsync(new AboutPage());
             };
 
             Content = new StackLayout
