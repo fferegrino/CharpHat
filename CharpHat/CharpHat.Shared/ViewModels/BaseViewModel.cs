@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
-//using Xamarin.Forms;
+using Xamarin.Forms;
 
 namespace CharpHat.ViewModels
 {
+#if WINDOWS_PHONE_APP
+    public class BaseViewModel : INotifyPropertyChanged
+#else
+        
     public class BaseViewModel : INotifyPropertyChanged, INotifyPropertyChanging
+#endif
     {
         private string title = string.Empty;
         private string subTitle = string.Empty;
