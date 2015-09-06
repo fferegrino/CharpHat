@@ -48,42 +48,54 @@ namespace CharpHat.Pages
             mainLayout.Children.Add(stickerLayer);
             Grid.SetRowSpan(stickerLayer, 2);
 
-            //mainLayout.Children.Add(pic,
-            //    Constraint.Constant(0),
-            //    Constraint.Constant(0),
-            //    Constraint.RelativeToParent((parent) => { return parent.Width; }),
-            //    Constraint.RelativeToParent((parent) => { return parent.Height; }));
-
-            //mainLayout.Children.Add(stickerLayer,
-            //    Constraint.Constant(0),
-            //    Constraint.Constant(0),
-            //    Constraint.RelativeToParent((parent) => { return parent.Width; }),
-            //    Constraint.RelativeToParent((parent) => { return parent.Height; }));
-
-
             var rotationSlider = new Slider
             {
                 Maximum = 90,
                 Minimum = -90,
-                Value = 0
+				Value = 0,
+				HorizontalOptions = LayoutOptions.FillAndExpand
             };
+
             rotationSlider.ValueChanged += (object sender, ValueChangedEventArgs e) =>
             {
                 stickerLayer.RotationFactor = (float)e.NewValue;
             };
+
             var scaleSlider = new Slider
             {
-                Maximum = 2,
-                Minimum = 0.5,
-                Value = 1
+                Maximum = 1.7,
+                Minimum = 0.3,
+                Value = 1,
+				HorizontalOptions = LayoutOptions.FillAndExpand
             };
+
             scaleSlider.ValueChanged += (object sender, ValueChangedEventArgs e) =>
             {
                 stickerLayer.ScaleFactor = (float)e.NewValue;
             };
+
+			Image imageRotation = new Image { Source = "rotate.png" };
+			Image imageResize = new Image { Source = "resize.png" };
+
+			var stackRotation = new StackLayout 
+			{
+				Orientation = StackOrientation.Horizontal,
+				Children = { imageRotation, rotationSlider },
+				HorizontalOptions = LayoutOptions.FillAndExpand
+			};
+
+			var stackResize = new StackLayout 
+			{
+				Orientation = StackOrientation.Horizontal,
+				Children = { imageResize, scaleSlider },
+				HorizontalOptions = LayoutOptions.FillAndExpand
+			};
+
             var stackedLayout = new StackLayout
             {
-                Children = { scaleSlider, rotationSlider }
+				Padding = 5,
+				BackgroundColor = Color.FromRgba(0,0,0,100),
+                Children = { stackRotation, stackResize }
             };
 
             //mainLayout.Children.Add()

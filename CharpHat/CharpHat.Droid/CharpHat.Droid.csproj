@@ -84,6 +84,16 @@
     <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\resize.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\resize.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\resize.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\resize.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\resize.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\rotate.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\rotate.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\rotate.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\rotate.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\rotate.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\TakePhotoButton.png" />
@@ -91,7 +101,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\CSharpHat.png" />
   </ItemGroup>
-  <Import Project="..\CharpHat\CharpHat.projitems" Label="Shared" Condition="Exists('..\CharpHat\CharpHat.projitems')" />
   <Import Project="..\CharpHat.Shared\CharpHat.projitems" Label="Shared" Condition="Exists('..\CharpHat.Shared\CharpHat.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.4.3.6376\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.3.6376\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

@@ -52,12 +52,6 @@ namespace CharpHat.Droid.Pages
             takePhotoButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.takePhotoButton);
             takePhotoButton.Click += TakePhotoButtonTapped;
 
-            //switchCameraButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.switchCameraButton);
-            //switchCameraButton.Click += SwitchCameraButtonTapped;
-
-            //toggleFlashButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.toggleFlashButton);
-            //toggleFlashButton.Click += ToggleFlashButtonTapped;
-
             AddView(view);
         }
 
