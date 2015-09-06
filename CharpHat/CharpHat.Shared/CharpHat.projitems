@@ -17,6 +17,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\BasePage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\LandingPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\ManipulatePhotoPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IPictureManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IScreenshotService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\INotifyPropertyChanging.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ManipulatePhotoViewModel.cs" />

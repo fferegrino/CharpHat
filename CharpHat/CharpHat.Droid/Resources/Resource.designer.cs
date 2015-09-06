@@ -53,7 +53,13 @@ namespace CharpHat.Droid
 			public const int Icon = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int TakePhotoButton = 2130837506;
+			public const int resize = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int rotate = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int TakePhotoButton = 2130837508;
 			
 			static Drawable()
 			{

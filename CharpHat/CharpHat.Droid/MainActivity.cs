@@ -8,10 +8,11 @@ using Android.Widget;
 using Android.OS;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
+using CharpHat.Droid.Services;
 
 namespace CharpHat.Droid
 {
-	[Activity (Label = "CharpHat.Droid", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity (Label = "CharpHat", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : FormsApplicationActivity
 	{
 		int count = 1;
@@ -23,6 +24,8 @@ namespace CharpHat.Droid
             Forms.Init(this, bundle);
             LoadApplication(new App());
 
+            // Screenshot service
+            ScreenshotService.Activity = this;
 		}
 	}
 }

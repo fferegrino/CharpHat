@@ -1,4 +1,5 @@
 ﻿using CharpHat.Controls;
+using CharpHat.Services;
 using CharpHat.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,46 @@ namespace CharpHat.Pages
     public class ManipulatePhotoPage : BasePage
     {
 
-        Grid mainLayout;
+        private Grid mainLayout;
+        public ManipulatePhotoViewModel ViewModel { get { return BindingContext as ManipulatePhotoViewModel; } }
+
+        Slider rotationSlider;
+        Slider scaleSlider;
+        StackLayout controlsStack;
+        Button continueButton;
+        // Custom control
+        StickerableImage stickerLayer;
+
 
         public ManipulatePhotoPage(byte[] image)
         {
             BindingContext = new ManipulatePhotoViewModel(image);
             SetUpUi();
+            SetUpEvents();
         }
 
-        public ManipulatePhotoViewModel ViewModel { get { return BindingContext as ManipulatePhotoViewModel; } }
+        private void SetUpEvents()
+        {
+
+            rotationSlider.ValueChanged += (object sender, ValueChangedEventArgs e) =>
+            {
+                stickerLayer.RotationFactor = (float)e.NewValue;
+            };
+
+            scaleSlider.ValueChanged += (object sender, ValueChangedEventArgs e) =>
+            {
+                stickerLayer.ScaleFactor = (float)e.NewValue;
+            };
+
+            continueButton.Clicked += async (s, a) => {
+                controlsStack.IsVisible = false;
+                var image = DependencyService.Get<IScreenshotService>().CaptureScreen();
+                DependencyService.Get<IPictureManager>().SavePictureToDisk("CharpHat", image);
+                await App.Current.MainPage.Navigation.PopToRootAsync();
+            };
+
+        }
+
 
         private void SetUpUi()
         {
@@ -41,65 +73,58 @@ namespace CharpHat.Pages
 
             };
 
-            var stickerLayer = new StickerableImage { };
+            stickerLayer = new StickerableImage { };
 
             mainLayout.Children.Add(pic);
             Grid.SetRowSpan(pic, 2);
             mainLayout.Children.Add(stickerLayer);
             Grid.SetRowSpan(stickerLayer, 2);
 
-            var rotationSlider = new Slider
+            rotationSlider = new Slider
             {
                 Maximum = 90,
                 Minimum = -90,
-				Value = 0,
-				HorizontalOptions = LayoutOptions.FillAndExpand
+                Value = 0,
+                HorizontalOptions = LayoutOptions.FillAndExpand
             };
 
-            rotationSlider.ValueChanged += (object sender, ValueChangedEventArgs e) =>
-            {
-                stickerLayer.RotationFactor = (float)e.NewValue;
-            };
 
-            var scaleSlider = new Slider
+            scaleSlider = new Slider
             {
                 Maximum = 1.7,
                 Minimum = 0.3,
                 Value = 1,
-				HorizontalOptions = LayoutOptions.FillAndExpand
+                HorizontalOptions = LayoutOptions.FillAndExpand
             };
 
-            scaleSlider.ValueChanged += (object sender, ValueChangedEventArgs e) =>
+
+            Image imageRotation = new Image { Source = "rotate.png" };
+            Image imageResize = new Image { Source = "resize.png" };
+
+            var stackRotation = new StackLayout
             {
-                stickerLayer.ScaleFactor = (float)e.NewValue;
+                Orientation = StackOrientation.Horizontal,
+                Children = { imageRotation, rotationSlider },
+                HorizontalOptions = LayoutOptions.FillAndExpand
             };
 
-			Image imageRotation = new Image { Source = "rotate.png" };
-			Image imageResize = new Image { Source = "resize.png" };
-
-			var stackRotation = new StackLayout 
-			{
-				Orientation = StackOrientation.Horizontal,
-				Children = { imageRotation, rotationSlider },
-				HorizontalOptions = LayoutOptions.FillAndExpand
-			};
-
-			var stackResize = new StackLayout 
-			{
-				Orientation = StackOrientation.Horizontal,
-				Children = { imageResize, scaleSlider },
-				HorizontalOptions = LayoutOptions.FillAndExpand
-			};
-
-            var stackedLayout = new StackLayout
+            var stackResize = new StackLayout
             {
-				Padding = 5,
-				BackgroundColor = Color.FromRgba(0,0,0,100),
-                Children = { stackRotation, stackResize }
+                Orientation = StackOrientation.Horizontal,
+                Children = { imageResize, scaleSlider },
+                HorizontalOptions = LayoutOptions.FillAndExpand
             };
 
-            //mainLayout.Children.Add()
-            mainLayout.Children.Add(stackedLayout, 0, 1);
+            continueButton = new Button { Text = "Continuar" };
+
+            controlsStack = new StackLayout
+            {
+                Padding = 5,
+                BackgroundColor = Color.FromRgba(0, 0, 0, 100),
+                Children = { stackRotation, stackResize, continueButton }
+            };
+
+            mainLayout.Children.Add(controlsStack, 0, 1);
 
             Content = mainLayout;
         }
