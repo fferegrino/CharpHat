@@ -23,5 +23,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\IScreenshotService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ManipulatePhotoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IDataSharer.cs" />
   </ItemGroup>
 </Project>

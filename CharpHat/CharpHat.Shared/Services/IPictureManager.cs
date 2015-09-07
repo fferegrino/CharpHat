@@ -8,6 +8,6 @@ namespace CharpHat.Services
 {
     public interface IPictureManager
     {
-        void SavePictureToDisk(string filename, byte[] imageData);
+		string SavePictureToDisk (string filename, string folder, byte[] imageData);
     }
 }

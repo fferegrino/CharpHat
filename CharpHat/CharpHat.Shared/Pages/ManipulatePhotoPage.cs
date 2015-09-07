@@ -47,8 +47,11 @@ namespace CharpHat.Pages
             continueButton.Clicked += async (s, a) => {
                 controlsStack.IsVisible = false;
                 var image = DependencyService.Get<IScreenshotService>().CaptureScreen();
-                DependencyService.Get<IPictureManager>().SavePictureToDisk("CharpHat", image);
-                await App.Current.MainPage.Navigation.PopToRootAsync();
+				var file = DependencyService.Get<IPictureManager>().SavePictureToDisk("CharpHatPic","CharpHat", image);
+				var sharer = DependencyService.Get<IDataSharer>();
+				sharer.ShareImage(file, "Compartir usando");
+                // await App.Current.MainPage.Navigation.PopToRootAsync();
+
             };
 
         }

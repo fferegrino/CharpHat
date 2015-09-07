@@ -21,13 +21,19 @@ namespace CharpHat.Droid.Services
 {
     public class PictureManager : IPictureManager
     {
-        public void SavePictureToDisk(string filename, byte[] imageData)
+		public string SavePictureToDisk(string filename, string folder, byte[] imageData)
         {
-            var dir = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDcim);
-            var pictures = dir.AbsolutePath;
+			var dir = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryPictures);
+			string picsFolder = System.String.Empty;
+			var externalStorage = Android.OS.Environment.ExternalStorageState;
+			if (!System.String.IsNullOrEmpty (folder)) {
+				picsFolder = System.IO.Path.Combine (dir.AbsolutePath, folder);
+			} else {
+				picsFolder = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDcim).AbsolutePath;
+			}
             //adding a time stamp time file name to allow saving more than one image… otherwise it overwrites the previous saved image of the same name
             string name = filename + System.DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".jpg";
-            string filePath = System.IO.Path.Combine(pictures, name);
+			string filePath = System.IO.Path.Combine(picsFolder, name);
             try
             {
                 System.IO.File.WriteAllBytes(filePath, imageData);
@@ -40,7 +46,7 @@ namespace CharpHat.Droid.Services
             {
                 System.Console.WriteLine(e.ToString());
             }
-
+			return filePath;
         }
     }
 }
