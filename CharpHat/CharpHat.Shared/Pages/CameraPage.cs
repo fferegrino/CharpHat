@@ -8,7 +8,6 @@ namespace CharpHat.Pages
         public CameraPage()
         {
 
-            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CharpHat.Controls;
+using CharpHat.Helpers;
 using CharpHat.Services;
 using CharpHat.ViewModels;
 using System;
@@ -59,6 +60,8 @@ namespace CharpHat.Pages
             mainLayout = new Grid()
             {
                 Padding = new Thickness(0),
+                ColumnSpacing = 0,
+                RowSpacing = 0,
                 RowDefinitions = {
                                    new RowDefinition{ Height = new GridLength(1, GridUnitType.Star)},
                                    new RowDefinition{ Height = GridLength.Auto }
@@ -70,7 +73,6 @@ namespace CharpHat.Pages
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 Source = ImageSource.FromStream(() => new MemoryStream(ViewModel.Image)),
-
             };
 
             stickerLayer = new StickerableImage { };
@@ -115,7 +117,7 @@ namespace CharpHat.Pages
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
 
-            continueButton = new Button { Text = "Continuar" };
+            continueButton = new Button { Text = "Continuar", Style = AppStyles.BaseButtonStyle };
 
             controlsStack = new StackLayout
             {

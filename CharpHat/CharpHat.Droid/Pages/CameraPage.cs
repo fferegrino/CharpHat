@@ -130,15 +130,11 @@ namespace CharpHat.Droid.Pages
                 imageBytes = imageStream.ToArray();
             }
 
-            var navigationPage = new NavigationPage(new ManipulatePhotoPage(imageBytes))
-            {
-                //BarBackgroundColor = Colors.NavigationBarColor,
-                //BarTextColor = Colors.NavigationBarTextColor
-            };
+            var manipulatePic = (new ManipulatePhotoPage(imageBytes));
 
             //DialogService.HideLoading();
             camera.StartPreview();
-            await App.Current.MainPage.Navigation.PushModalAsync(navigationPage, false);
+            await App.Current.MainPage.Navigation.PushAsync(manipulatePic, false);
         }
 
     }

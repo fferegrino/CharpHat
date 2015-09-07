@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CharpHat.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,16 +12,22 @@ namespace CharpHat.Pages
     
         Button newTakeButton;
         Button aboutButton;
+        Image coolImage;
+
+
 
         public LandingPage()
         {
-            newTakeButton = new Button { Text = "Nueva foto" };
+            
+            coolImage = new Image { Source = "justCSharp.png" };
+
+            newTakeButton = new Button { Text = "Nueva foto", Style = AppStyles.MainPageButtonStyle };
             newTakeButton.Clicked += async (sender, args) =>
             {
                 await App.Current.MainPage.Navigation.PushAsync(new CameraPage());
             };
 
-            aboutButton = new Button { Text = "Acerca de" };
+            aboutButton = new Button { Text = "Acerca de", Style = AppStyles.MainPageButtonStyle };
             aboutButton.Clicked += async (sender, args) =>
             {
                 await App.Current.MainPage.Navigation.PushAsync(new AboutPage());
@@ -28,11 +35,16 @@ namespace CharpHat.Pages
 
             Content = new StackLayout
             {
+                VerticalOptions = LayoutOptions.Center,
+                Spacing = 30,
                 Children = {
-					new Label { Text = "Put a nice hat over your head" },
-                    newTakeButton
+                    coolImage,
+                    
+                    newTakeButton, 
+                    aboutButton
 				}
             };
         }
     }
 }
+

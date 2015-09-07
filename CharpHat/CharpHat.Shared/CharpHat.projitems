@@ -11,6 +11,8 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CharpHatApp.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\StickerableImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\AppColors.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\AppStyles.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MyClass.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\AboutPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\CameraPage.cs" />
@@ -20,10 +22,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\IPictureManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IScreenshotService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\INotifyPropertyChanging.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ManipulatePhotoViewModel.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Helpers\" />
   </ItemGroup>
 </Project>
