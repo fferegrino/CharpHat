@@ -48,8 +48,9 @@ namespace CharpHat.Pages
                 controlsStack.IsVisible = false;
                 var image = DependencyService.Get<IScreenshotService>().CaptureScreen();
 				var file = DependencyService.Get<IPictureManager>().SavePictureToDisk("CharpHatPic","CharpHat", image);
-				await DisplayAlert("Imagen guardada como", file, "Aceptar");
-				await App.Current.MainPage.Navigation.PopToRootAsync();
+                //await DisplayAlert("Imagen guardada como", file, "Aceptar");
+                Acr.UserDialogs.UserDialogs.Instance.ShowSuccess("Imagen guardada en la galería");
+                await App.Current.MainPage.Navigation.PopToRootAsync();
             };
 
         }
@@ -130,6 +131,13 @@ namespace CharpHat.Pages
             mainLayout.Children.Add(controlsStack, 0, 1);
 
             Content = mainLayout;
+        }
+
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Acr.UserDialogs.UserDialogs.Instance.InfoToast("Instrucciones", "Mueve el sombrero con tu dedo", 2000);
         }
     }
 }

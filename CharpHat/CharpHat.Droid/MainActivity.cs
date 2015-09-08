@@ -21,6 +21,7 @@ namespace CharpHat.Droid
 
             Forms.Init(this, bundle);
             LoadApplication(new App());
+            Acr.UserDialogs.UserDialogs.Init(this);
 
             // Screenshot service
             ScreenshotService.Activity = this;

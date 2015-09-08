@@ -142,7 +142,8 @@ namespace CharpHat.Droid.Pages
         private async void TakePhotoButtonTapped(object sender, EventArgs e)
         {
             camera.StopPreview();
-			
+
+            Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Tomando foto");
             //DialogService.ShowLoading("Capturing Every Pixel");
 
             var aspectRation = ((decimal) Height) / Width;
@@ -157,7 +158,8 @@ namespace CharpHat.Droid.Pages
 
             var manipulatePic = (new ManipulatePhotoPage(imageBytes));
 
-            //DialogService.HideLoading();
+            Acr.UserDialogs.UserDialogs.Instance.HideLoading();
+
             camera.StartPreview();
             await App.Current.MainPage.Navigation.PushAsync(manipulatePic, false);
         }

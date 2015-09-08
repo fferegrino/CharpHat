@@ -1,6 +1,7 @@
 ﻿using Android.Content;
 using Android.Graphics;
 using Android.Views;
+using Android.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,12 @@ namespace CharpHat.Droid.Controls
         {
             originalHatBitmap = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.CSharpHat);
             transformedHatBitmap = originalHatBitmap;
+            IWindowManager windowManager = Context.GetSystemService(Context.WindowService).JavaCast<IWindowManager>();
+
+            Display display = windowManager.DefaultDisplay;
+            fingerX = ((float)display.Width) / 2;
+            fingerY = ((float)display.Height) / 4;
+
         }
 
 
@@ -70,22 +77,6 @@ namespace CharpHat.Droid.Controls
         {
             fingerX = e.GetX();
             fingerY = e.GetY();
-
-            switch (e.Action)
-            {
-                case MotionEventActions.Down:
-                    //DrawPath.MoveTo(touchX, touchY);
-                    break;
-                case MotionEventActions.Move:
-                    //DrawPath.LineTo(touchX, touchY);
-                    break;
-                case MotionEventActions.Up:
-                    //DrawCanvas.DrawPath(DrawPath, DrawPaint);
-                    //DrawPath.Reset();
-                    break;
-                default:
-                    return false;
-            }
 
             Invalidate();
 
