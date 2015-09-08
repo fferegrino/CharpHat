@@ -15,8 +15,6 @@ namespace CharpHat.Droid
 	[Activity (Label = "CharpHat", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : FormsApplicationActivity
 	{
-		int count = 1;
-
 		protected override void OnCreate (Bundle bundle)
 		{
             base.OnCreate(bundle);

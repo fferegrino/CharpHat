@@ -142,6 +142,7 @@ namespace CharpHat.Droid.Pages
         private async void TakePhotoButtonTapped(object sender, EventArgs e)
         {
             camera.StopPreview();
+			
             //DialogService.ShowLoading("Capturing Every Pixel");
 
             var aspectRation = ((decimal) Height) / Width;

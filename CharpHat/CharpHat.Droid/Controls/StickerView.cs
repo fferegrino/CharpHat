@@ -49,8 +49,6 @@ namespace CharpHat.Droid.Controls
 
             // This line here is THE DEVIL:
             GC.Collect();
-            int scaleWidth = (int)(originalHatBitmap.Width* scaleFactor);
-            int scaleHeight = (int)(originalHatBitmap.Height * scaleFactor);
 
             Matrix matrix = new Matrix();
             // resize the bit map
