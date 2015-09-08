@@ -48,10 +48,8 @@ namespace CharpHat.Pages
                 controlsStack.IsVisible = false;
                 var image = DependencyService.Get<IScreenshotService>().CaptureScreen();
 				var file = DependencyService.Get<IPictureManager>().SavePictureToDisk("CharpHatPic","CharpHat", image);
-				var sharer = DependencyService.Get<IDataSharer>();
-				sharer.ShareImage(file, "Compartir usando");
-                // await App.Current.MainPage.Navigation.PopToRootAsync();
-
+				await DisplayAlert("Imagen guardada como", file, "Aceptar");
+				await App.Current.MainPage.Navigation.PopToRootAsync();
             };
 
         }
