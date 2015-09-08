@@ -31,6 +31,9 @@ namespace CharpHat.Droid.Services
 			} else {
 				picsFolder = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDcim).AbsolutePath;
 			}
+            var pck = new File(picsFolder);
+            if (!pck.Exists())
+                pck.Mkdirs();
             //adding a time stamp time file name to allow saving more than one image… otherwise it overwrites the previous saved image of the same name
             string name = filename + System.DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".jpg";
 			string filePath = System.IO.Path.Combine(picsFolder, name);

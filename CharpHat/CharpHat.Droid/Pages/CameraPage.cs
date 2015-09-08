@@ -30,6 +30,8 @@ namespace CharpHat.Droid.Pages
         SurfaceTexture surfaceTexture;
         global::Android.Views.View view;
 
+        decimal aspectRatio;
+
         byte[] imageBytes;
 
         public CameraPage()
@@ -72,6 +74,26 @@ namespace CharpHat.Droid.Pages
 
             camera = global::Android.Hardware.Camera.Open((int)cameraType);
             textureView.LayoutParameters = new FrameLayout.LayoutParams(width, height);
+
+            aspectRatio = ((decimal)height) / ((decimal)width);
+            decimal difference = Decimal.MaxValue;
+            var parameters = camera.GetParameters();
+            var supportedSizes = parameters.SupportedPreviewSizes;
+            Android.Hardware.Camera.Size previewSize = null;
+            foreach (var size in supportedSizes)
+            {
+                decimal current = size.Width / (decimal)size.Height;
+                Console.WriteLine(size.Width + "\t" + size.Height);
+                if (Math.Abs(current - aspectRatio) < difference)
+                {
+                    previewSize = size;
+                    difference = Math.Abs(current - aspectRatio);
+                }
+            }
+
+            parameters.SetPreviewSize(previewSize.Width, previewSize.Height);
+            camera.SetParameters(parameters);
+
             surfaceTexture = surface;
 
             camera.SetPreviewTexture(surface);
@@ -122,7 +144,9 @@ namespace CharpHat.Droid.Pages
             camera.StopPreview();
             //DialogService.ShowLoading("Capturing Every Pixel");
 
-            var image = textureView.Bitmap;
+            var aspectRation = ((decimal) Height) / Width;
+
+            var image = Bitmap.CreateBitmap(textureView.Bitmap, 0, 0, textureView.Bitmap.Width, (int)(textureView.Bitmap.Width * aspectRation));
             using (var imageStream = new MemoryStream())
             {
                 await image.CompressAsync(Bitmap.CompressFormat.Jpeg, 50, imageStream);
