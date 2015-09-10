@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace CharpHat.Pages
@@ -30,6 +31,7 @@ namespace CharpHat.Pages
             SetUpUi();
             SetUpEvents();
         }
+        
 
         private void SetUpEvents()
         {
@@ -44,13 +46,12 @@ namespace CharpHat.Pages
                 stickerLayer.ScaleFactor = (float)e.NewValue;
             };
 
-            continueButton.Clicked += async (s, a) => {
+            continueButton.Clicked += (s, a) => {
                 controlsStack.IsVisible = false;
                 var image = DependencyService.Get<IScreenshotService>().CaptureScreen();
 				var file = DependencyService.Get<IPictureManager>().SavePictureToDisk("CharpHatPic","CharpHat", image);
-                //await DisplayAlert("Imagen guardada como", file, "Aceptar");
                 Acr.UserDialogs.UserDialogs.Instance.ShowSuccess("Imagen guardada en la galería");
-                await App.Current.MainPage.Navigation.PopToRootAsync();
+                controlsStack.IsVisible = true;
             };
 
         }

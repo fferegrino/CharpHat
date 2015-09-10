@@ -10,6 +10,7 @@ namespace CharpHat.Pages
         public ObservableCollection<ToolbarItem> BaseToolbarItems { get; set; }
         public BasePage()
         {
+            
             BackgroundColor = AppColors.LightPurple;
             NavigationPage.SetHasNavigationBar(this, false);
             BaseToolbarItems = new ObservableCollection<ToolbarItem>();

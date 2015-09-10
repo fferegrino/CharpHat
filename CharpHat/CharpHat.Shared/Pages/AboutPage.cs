@@ -32,7 +32,7 @@ namespace CharpHat.Pages
 			openSourceButton = new Button { Text ="¡Código abierto!", Style = AppStyles.MainPageButtonStyle };
 			openSourceButton.Clicked += (sender, args) =>
 			{
-				Device.OpenUri(new Uri("http://github.com/fferegrino/CharpHat/README.md"));
+				Device.OpenUri(new Uri("https://github.com/fferegrino/CharpHat/blob/master/README.md"));
 			};
 
 			Content = new StackLayout

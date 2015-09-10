@@ -1,6 +1,6 @@
 CharpHat
 ========
-Put a cool C# hat on top of yout head (or everywhere) with this Xamarin.Forms app.
+Put a cool C# hat on top of yout head (or anywhere) with this Xamarin.Forms app.
 
 ![Xamarin monkey](http://imagizer.imageshack.us/v2/640x480q90/913/mu3Qcb.png)  
   

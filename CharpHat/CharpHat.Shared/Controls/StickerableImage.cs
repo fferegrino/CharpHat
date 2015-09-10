@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace CharpHat.Controls
 {
-    public class StickerableImage : Image
+    public class StickerableImage : View
     {
         public static readonly BindableProperty ScaleFactorProperty =
             BindableProperty.Create((StickerableImage si) => si.ScaleFactor, 1f);

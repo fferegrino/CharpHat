@@ -71,7 +71,6 @@ namespace CharpHat.Droid.Pages
 
         public void OnSurfaceTextureAvailable(Android.Graphics.SurfaceTexture surface, int width, int height)
         {
-
             camera = global::Android.Hardware.Camera.Open((int)cameraType);
             textureView.LayoutParameters = new FrameLayout.LayoutParams(width, height);
 
@@ -103,9 +102,13 @@ namespace CharpHat.Droid.Pages
 
         public bool OnSurfaceTextureDestroyed(Android.Graphics.SurfaceTexture surface)
         {
+            return TurnOffCamera();
+        }
+
+        private bool TurnOffCamera()
+        {
             camera.StopPreview();
             camera.Release();
-
             return true;
         }
 
@@ -161,6 +164,7 @@ namespace CharpHat.Droid.Pages
             Acr.UserDialogs.UserDialogs.Instance.HideLoading();
 
             camera.StartPreview();
+            //TurnOffCamera();
             await App.Current.MainPage.Navigation.PushAsync(manipulatePic, false);
         }
 
