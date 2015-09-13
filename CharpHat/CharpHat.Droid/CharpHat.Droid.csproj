@@ -15,7 +15,7 @@
     <AndroidApplication>True</AndroidApplication>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>CharpHat.Droid</AssemblyName>
-    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v5.1</TargetFrameworkVersion>
     <NuGetPackageImportStamp>6078b6d1</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -39,26 +39,6 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Acr.Support.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Acr.Support.1.0.0\lib\MonoAndroid10\Acr.Support.Android.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Acr.UserDialogs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Acr.UserDialogs.4.1.0\lib\MonoAndroid10\Acr.UserDialogs.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Acr.UserDialogs.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Acr.UserDialogs.4.1.0\lib\MonoAndroid10\Acr.UserDialogs.Interface.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="AndHUD, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Acr.UserDialogs.4.1.0\lib\MonoAndroid10\AndHUD.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Splat, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Splat.1.6.2\lib\monoandroid\Splat.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="FormsViewGroup">
       <HintPath>..\packages\Xamarin.Forms.1.4.3.6376\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
     </Reference>
@@ -80,6 +60,21 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.1.4.3.6376\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.Support.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Acr.Support.1.0.0\lib\MonoAndroid10\Acr.Support.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.UserDialogs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Acr.UserDialogs.4.1.0\lib\MonoAndroid10\Acr.UserDialogs.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.UserDialogs.Interface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Acr.UserDialogs.4.1.0\lib\MonoAndroid10\Acr.UserDialogs.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="AndHUD, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Acr.UserDialogs.4.1.0\lib\MonoAndroid10\AndHUD.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Splat.1.6.2\lib\monoandroid\Splat.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

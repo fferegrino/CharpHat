@@ -167,9 +167,12 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Pages\CameraPage.cs" />
+    <Compile Include="Controls\StickerableImage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />
+    <Folder Include="Pages\" />
   </ItemGroup>
   <Import Project="..\CharpHat.Shared\CharpHat.projitems" Label="Shared" Condition="Exists('..\CharpHat.Shared\CharpHat.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
@@ -182,5 +185,9 @@
   </Target>
   <ItemGroup>
     <BundleResource Include="Resources\icon.png" />
+    <BundleResource Include="Resources\TakePhotoButton.png" />
+    <BundleResource Include="Resources\CSharpHat.png" />
+    <BundleResource Include="Resources\resize.png" />
+    <BundleResource Include="Resources\rotate.png" />
   </ItemGroup>
 </Project>

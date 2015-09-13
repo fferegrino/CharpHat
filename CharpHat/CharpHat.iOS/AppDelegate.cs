@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using UIKit;
+using CharpHat.Helpers;
 
 namespace CharpHat.iOS
 {
@@ -12,7 +13,9 @@ namespace CharpHat.iOS
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
-			Xamarin.Forms.Forms.Init ();
+			UINavigationBar.Appearance.BarTintColor = AppColors.LightPurple.ToPlatformColor ();
+			UINavigationBar.Appearance.TintColor = AppColors.DarkPurple.ToPlatformColor ();
+				Xamarin.Forms.Forms.Init ();
 			LoadApplication (new App ());
 		
 			return base.FinishedLaunching(application,launchOptions);
