@@ -31,7 +31,7 @@ namespace CharpHat.Pages
             SetUpUi();
             SetUpEvents();
         }
-        
+
 
         private void SetUpEvents()
         {
@@ -46,10 +46,11 @@ namespace CharpHat.Pages
                 stickerLayer.ScaleFactor = (float)e.NewValue;
             };
 
-            continueButton.Clicked += (s, a) => {
+            continueButton.Clicked += (s, a) =>
+            {
                 controlsStack.IsVisible = false;
                 var image = DependencyService.Get<IScreenshotService>().CaptureScreen();
-				var file = DependencyService.Get<IPictureManager>().SavePictureToDisk("CharpHatPic","CharpHat", image);
+                var file = DependencyService.Get<IPictureManager>().SavePictureToDisk("CharpHatPic", "CharpHat", image);
                 Acr.UserDialogs.UserDialogs.Instance.ShowSuccess("Imagen guardada en la galería");
                 controlsStack.IsVisible = true;
             };
@@ -102,9 +103,8 @@ namespace CharpHat.Pages
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
 
-
-            Image imageRotation = new Image { Source = "rotate.png" };
-            Image imageResize = new Image { Source = "resize.png" };
+            Image imageRotation = new Image { Source = AppIcons.RotateIcon };
+            Image imageResize = new Image { Source = AppIcons.ResizeIcon };
 
             var stackRotation = new StackLayout
             {
@@ -120,7 +120,31 @@ namespace CharpHat.Pages
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
 
-            continueButton = new Button { Text = "Continuar", Style = AppStyles.BaseButtonStyle };
+
+            var stackButtons = new StackLayout
+            {
+                Orientation = StackOrientation.Horizontal,
+            };
+
+            continueButton = new Button
+            {
+                Text = "Continuar",
+                Style = AppStyles.BaseButtonStyle,
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            };
+            stackButtons.Children.Add(continueButton);
+
+            if (Device.OS == TargetPlatform.iOS)
+            {
+                // Since there is no back button on iOS...
+                var cancelButton = new Button
+                {
+                    Text = "Cancel",
+                    Style = AppStyles.CancelButtonStyle
+                };
+                cancelButton.Clicked += async (s, a) => { App.Current.MainPage.Navigation.PopAsync(); };
+                stackButtons.Children.Add(cancelButton);
+            }
 
             controlsStack = new StackLayout
             {
@@ -128,10 +152,10 @@ namespace CharpHat.Pages
                 BackgroundColor = Color.FromRgba(0, 0, 0, 100)
             };
 
-			if(Device.OS != TargetPlatform.iOS)
-				controlsStack.Children.Add (stackRotation);
-			controlsStack.Children.Add (stackResize);
-			controlsStack.Children.Add (continueButton);
+            if (Device.OS != TargetPlatform.iOS) // No rotation supported for iOS yet.
+                controlsStack.Children.Add(stackRotation);
+            controlsStack.Children.Add(stackResize);
+            controlsStack.Children.Add(stackButtons);
 
             mainLayout.Children.Add(controlsStack, 0, 1);
 

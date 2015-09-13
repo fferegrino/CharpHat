@@ -12,8 +12,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)CharpHatApp.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\StickerableImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\AppColors.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\AppIcons.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\AppStyles.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)MyClass.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\AboutPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\CameraPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\BasePage.cs" />

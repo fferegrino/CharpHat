@@ -22,7 +22,11 @@ namespace CharpHat.Droid.Pages
         global::Android.Hardware.Camera camera;
         global::Android.Widget.Button takePhotoButton;
         global::Android.Widget.Button toggleFlashButton;
+        global::Android.Widget.Button cancelCameraButton;
         global::Android.Widget.Button switchCameraButton;
+
+        global::Android.Graphics.Drawables.Drawable rearCameraIcon;
+        global::Android.Graphics.Drawables.Drawable frontCameraIcon;
 
         Activity activity;
         CameraFacing cameraType;
@@ -54,7 +58,47 @@ namespace CharpHat.Droid.Pages
             takePhotoButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.takePhotoButton);
             takePhotoButton.Click += TakePhotoButtonTapped;
 
+            switchCameraButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.switchCameraButton);
+            switchCameraButton.Click += SwitchCameraButtonTapped;
+
+            cancelCameraButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.cancelPhotoButton);
+            cancelCameraButton.Click += CancelCameraButtonTapped;
+
+            frontCameraIcon = Context.Resources.GetDrawable(Resource.Drawable.ic_camera_front_white_24dp);
+            rearCameraIcon = Context.Resources.GetDrawable(Resource.Drawable.ic_camera_rear_white_24dp);
+
             AddView(view);
+        }
+
+        async void CancelCameraButtonTapped(object sender, EventArgs e)
+        {
+            await App.Current.MainPage.Navigation.PopAsync();
+        }
+
+
+        bool _isCameraFront;
+        void SwitchCameraButtonTapped(object sender, EventArgs e)
+        {
+            if (cameraType == CameraFacing.Front)
+            {
+                switchCameraButton.Background = frontCameraIcon;
+                cameraType = CameraFacing.Back;
+                camera.StopPreview();
+                camera.Release();
+                camera = global::Android.Hardware.Camera.Open((int)cameraType);
+                camera.SetPreviewTexture(surfaceTexture);
+                PrepareAndStartCamera();
+            }
+            else
+            {
+                switchCameraButton.Background = rearCameraIcon;
+                cameraType = CameraFacing.Front;
+                camera.StopPreview();
+                camera.Release();
+                camera = global::Android.Hardware.Camera.Open((int)cameraType);
+                camera.SetPreviewTexture(surfaceTexture);
+                PrepareAndStartCamera();
+            }
         }
 
 

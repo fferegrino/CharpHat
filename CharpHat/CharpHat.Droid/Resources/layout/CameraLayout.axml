@@ -9,22 +9,23 @@
         android:layout_marginTop="-95dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-<!--<Button
-        android:id="@+id/toggleFlashButton"
-        android:layout_width="37dp"
-        android:layout_height="37dp"
+		
+	<Button
+        android:id="@+id/cancelPhotoButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_gravity="top|left"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="25dp"
-        android:background="@drawable/NoFlashButton" />-->
-<!--<Button
+        android:background="@drawable/ic_cancel_white_24dp" />
+	<Button
         android:id="@+id/switchCameraButton"
         android:layout_width="35dp"
-        android:layout_height="26dp"
+        android:layout_height="35dp"
         android:layout_gravity="top|right"
         android:layout_marginRight="25dp"
         android:layout_marginTop="25dp"
-        android:background="@drawable/ToggleCameraButton" />-->
+        android:background="@drawable/ic_camera_front_white_24dp" />
     <Button
         android:id="@+id/takePhotoButton"
         android:layout_width="65dp"

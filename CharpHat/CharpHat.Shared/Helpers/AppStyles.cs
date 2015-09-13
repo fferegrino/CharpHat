@@ -24,5 +24,14 @@ namespace CharpHat.Helpers
                 new Setter { Property = Button.FontSizeProperty, Value = 20 }
             }
         };
+
+        public static Style CancelButtonStyle = new Style(typeof(Button))
+        {
+            Setters =
+            {
+                new Setter { Property = Button.TextColorProperty, Value = Color.White },
+                new Setter { Property = Button.BackgroundColorProperty, Value = Color.Red }
+            }
+        };
     }
 }
