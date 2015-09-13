@@ -1,34 +1,11 @@
 ﻿using System;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.iOS;
-using CharpHat.Controls;
-using UIKit;
 using CoreGraphics;
-using System.Collections.Generic;
+using UIKit;
 using Foundation;
 
-
-
-[assembly: ExportRenderer(typeof(CharpHat.Controls.StickerableImage), typeof(CharpHat.iOS.Controls.StickerableImageRenderer))]
 namespace CharpHat.iOS.Controls
 {
-	public class StickerableImageRenderer : ViewRenderer<StickerableImage, StickerView>
-	{
-		protected override void OnElementChanged(ElementChangedEventArgs<StickerableImage> e)
-		{
-			base.OnElementChanged(e);
 
-			if (e.OldElement != null || Element == null)
-				return;
-
-			try {
-				SetNativeControl(new StickerView(CGRect.Empty));
-			} catch (Exception ex) {
-			}
-		}
-
-	}
 
 	public class StickerView : UIView {
 
@@ -36,18 +13,31 @@ namespace CharpHat.iOS.Controls
 		nfloat _x;
 		nfloat _y;
 		nfloat scale;
+		nfloat externScale;
+		nfloat externRotation;
 		nint originalWidth;
 		nint originalHeight;
 
 		public StickerView (CGRect frame)
 			: base(frame)
 		{
+			
 			BackgroundColor = UIColor.FromRGBA (0, 0, 0, 0);
 			DrawPath = new CGPath ();
-			originalHat =UIImage.FromFile ("CSharpHat.png").CGImage;
+			originalHat = UIImage.FromFile ("CSharpHat.png").CGImage;
 			scale = ((nfloat)originalHat.Height) / originalHat.Width;
 			originalWidth = originalHat.Width;
+			_x = Bounds.Width / 2;
+			_x = Bounds.Height / 2;
+			externScale = 1;
 			originalHeight = originalHat.Height;
+		}
+
+		public void AlterScaleFactor (float scaleFactor, float rotationFactor)
+		{
+			externScale = (nfloat)scaleFactor;
+			externRotation = (nfloat)rotationFactor;
+			SetNeedsDisplay ();
 		}
 
 		private CGPoint PreviousPoint;
@@ -87,12 +77,12 @@ namespace CharpHat.iOS.Controls
 			if (Math.Abs (currentPoint.X - PreviousPoint.X) >= 4 ||
 				Math.Abs (currentPoint.Y - PreviousPoint.Y) >= 4) {
 
-				
+
 				PreviousPoint = currentPoint;
 				_x = currentPoint.X;
 				_y = currentPoint.Y;
 			} else {
-				
+
 			}
 
 			InvokeOnMainThread (SetNeedsDisplay);
@@ -113,11 +103,13 @@ namespace CharpHat.iOS.Controls
 			base.Draw (rect);
 
 			using(CGContext g = UIGraphics.GetCurrentContext ()){
-				CGRect rekt = new CGRect (_x- (originalWidth -2), _y-(originalHeight/2),originalWidth, originalWidth * scale);
+				var radians = (Math.PI / 180) * externRotation;
+				CGPoint center = new CGPoint (_x - (originalWidth * externScale / 2), _y - (originalHeight * externScale / 2));
+				//g.RotateCTM ((nfloat)radians);
+				CGRect rekt = new CGRect (center.X,center.Y,originalWidth * externScale, originalHeight * externScale);
 				g.DrawImage (rekt, originalHat);
 			}
 		}
-	}
-
+}
 }
 

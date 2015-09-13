@@ -168,11 +168,15 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Pages\CameraPage.cs" />
-    <Compile Include="Controls\StickerableImage.cs" />
+    <Compile Include="Controls\StickerableImageRenderer.cs" />
+    <Compile Include="Controls\StickerView.cs" />
+    <Compile Include="Services\ScreenshotService.cs" />
+    <Compile Include="Services\PictureManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />
     <Folder Include="Pages\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="..\CharpHat.Shared\CharpHat.projitems" Label="Shared" Condition="Exists('..\CharpHat.Shared\CharpHat.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

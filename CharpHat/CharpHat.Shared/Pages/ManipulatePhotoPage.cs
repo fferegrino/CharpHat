@@ -125,9 +125,13 @@ namespace CharpHat.Pages
             controlsStack = new StackLayout
             {
                 Padding = 5,
-                BackgroundColor = Color.FromRgba(0, 0, 0, 100),
-                Children = { stackRotation, stackResize, continueButton }
+                BackgroundColor = Color.FromRgba(0, 0, 0, 100)
             };
+
+			if(Device.OS != TargetPlatform.iOS)
+				controlsStack.Children.Add (stackRotation);
+			controlsStack.Children.Add (stackResize);
+			controlsStack.Children.Add (continueButton);
 
             mainLayout.Children.Add(controlsStack, 0, 1);
 
