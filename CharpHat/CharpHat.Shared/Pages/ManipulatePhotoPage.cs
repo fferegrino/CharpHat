@@ -142,7 +142,9 @@ namespace CharpHat.Pages
                     Text = "Cancel",
                     Style = AppStyles.CancelButtonStyle
                 };
-                cancelButton.Clicked += async (s, a) => { App.Current.MainPage.Navigation.PopAsync(); };
+                cancelButton.Clicked += async (s, a) => { 
+					await App.Current.MainPage.Navigation.PopModalAsync(); 
+				};
                 stackButtons.Children.Add(cancelButton);
             }
 
@@ -166,7 +168,7 @@ namespace CharpHat.Pages
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            Acr.UserDialogs.UserDialogs.Instance.InfoToast("Instrucciones", "Mueve el sombrero con tu dedo", 2000);
+            Acr.UserDialogs.UserDialogs.Instance.InfoToast("Instrucciones", "Mueve el sombrero con tu dedo", 1000);
         }
     }
 }

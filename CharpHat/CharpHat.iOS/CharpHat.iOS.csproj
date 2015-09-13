@@ -191,27 +191,21 @@
     <BundleResource Include="Resources\icon.png" />
     <BundleResource Include="Resources\TakePhotoButton.png" />
     <BundleResource Include="Resources\CSharpHat.png" />
-	
-	
     <BundleResource Include="Resources\ic_photo_size_select_large_white.png" />
-    <BundleResource Include="Resources\ic_photo_size_select_large_white@2x.png" />
-    <BundleResource Include="Resources\ic_photo_size_select_large_white@3x.png" />
-	
     <BundleResource Include="Resources\ic_rotate_left_white.png" />
-    <BundleResource Include="Resources\ic_rotate_left_white@2x.png" />
-    <BundleResource Include="Resources\ic_rotate_left_white@3x.png" />
-	
     <BundleResource Include="Resources\ic_camera_front_white.png" />
-    <BundleResource Include="Resources\ic_camera_front_white@2x.png" />
-    <BundleResource Include="Resources\ic_camera_front_white@3x.png" />
-	
     <BundleResource Include="Resources\ic_camera_rear_white.png" />
-    <BundleResource Include="Resources\ic_camera_rear_white@2x.png" />
-    <BundleResource Include="Resources\ic_camera_rear_white@3x.png" />
-	
     <BundleResource Include="Resources\ic_cancel_white.png" />
-    <BundleResource Include="Resources\ic_cancel_white@2x.png" />
-    <BundleResource Include="Resources\ic_cancel_white@3x.png" />
-	
+    <BundleResource Include="Resources\ic_photo_size_select_large_white%402x.png" />
+    <BundleResource Include="Resources\ic_photo_size_select_large_white%403x.png" />
+    <BundleResource Include="Resources\ic_rotate_left_white%402x.png" />
+    <BundleResource Include="Resources\ic_rotate_left_white%403x.png" />
+    <BundleResource Include="Resources\ic_camera_front_white%402x.png" />
+    <BundleResource Include="Resources\ic_camera_front_white%403x.png" />
+    <BundleResource Include="Resources\ic_camera_rear_white%402x.png" />
+    <BundleResource Include="Resources\ic_camera_rear_white%403x.png" />
+    <BundleResource Include="Resources\ic_cancel_white%402x.png" />
+    <BundleResource Include="Resources\ic_cancel_white%403x.png" />
+    <BundleResource Include="Resources\justCSharp.png" />
   </ItemGroup>
 </Project>

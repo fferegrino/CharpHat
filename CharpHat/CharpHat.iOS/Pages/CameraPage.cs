@@ -26,7 +26,11 @@ namespace CharpHat.iOS.Pages
 		UIView liveCameraStream;
 		AVCaptureStillImageOutput stillImageOutput;
 		UIButton takePhotoButton;
+		UIButton toggleCameraButton;
+		UIButton cancelPhotoButton;
 
+		UIImage frontCameraIcon;
+		UIImage rearCameraIcon;
 
 		public override void ViewDidLoad ()
 		{
@@ -52,6 +56,9 @@ namespace CharpHat.iOS.Pages
 		{
 			var centerButtonX = View.Bounds.GetMidX () - 35f;
 			var bottomButtonY = View.Bounds.Bottom - 85;
+			var topRightX = View.Bounds.Right - 65;
+			var topLeftX = View.Bounds.X + 25;
+			var topButtonY = View.Bounds.Top + 25;
 			var buttonWidth = 70;
 			var buttonHeight = 70;
 
@@ -62,16 +69,74 @@ namespace CharpHat.iOS.Pages
 			takePhotoButton = new UIButton () {
 				Frame = new CGRect (centerButtonX, bottomButtonY, buttonWidth, buttonHeight)
 			};
+
 			takePhotoButton.SetBackgroundImage (UIImage.FromFile ("TakePhotoButton.png"), UIControlState.Normal);
+
+			toggleCameraButton = new UIButton () {
+				Frame = new CGRect (topRightX, topButtonY, 37, 37)
+			};
+
+			frontCameraIcon = UIImage.FromFile ("ic_camera_front_white.png");
+			rearCameraIcon = UIImage.FromFile ("ic_camera_rear_white.png");
+
+			toggleCameraButton.SetBackgroundImage (frontCameraIcon, UIControlState.Normal);
+
+			cancelPhotoButton = new UIButton () {
+				Frame = new CGRect (topLeftX, topButtonY, 37, 37)
+			};
+			cancelPhotoButton.SetBackgroundImage (UIImage.FromFile ("ic_cancel_white.png"), UIControlState.Normal);
+
+
 
 			View.Add (liveCameraStream);
 			View.Add (takePhotoButton);
+			View.Add (toggleCameraButton);
+			View.Add (cancelPhotoButton);
 		}
 
 
 		private void SetupEventHandlers ()
 		{
 			takePhotoButton.TouchUpInside += async (object sender, EventArgs e) =>  CapturePhoto ();
+			toggleCameraButton.TouchUpInside +=  (object sender, EventArgs e) =>  ToggleFrontBackCamera ();
+			cancelPhotoButton.TouchUpInside += async (object sender, EventArgs e) => {
+				await App.Current.MainPage.Navigation.PopAsync();
+			};
+		}
+
+
+		public void ToggleFrontBackCamera ()
+		{
+			var devicePosition = captureDeviceInput.Device.Position;
+			if (devicePosition == AVCaptureDevicePosition.Front) {
+				devicePosition = AVCaptureDevicePosition.Back;
+				toggleCameraButton.SetBackgroundImage (frontCameraIcon, UIControlState.Normal);
+			} else {
+				devicePosition = AVCaptureDevicePosition.Front;
+				toggleCameraButton.SetBackgroundImage (rearCameraIcon, UIControlState.Normal);
+			}
+
+			var device = GetCameraForOrientation (devicePosition);
+			ConfigureCameraForDevice (device);
+
+			captureSession.BeginConfiguration ();
+			captureSession.RemoveInput (captureDeviceInput);
+			captureDeviceInput = AVCaptureDeviceInput.FromDevice (device);
+			captureSession.AddInput (captureDeviceInput);
+			captureSession.CommitConfiguration ();
+		}
+
+		public AVCaptureDevice GetCameraForOrientation (AVCaptureDevicePosition orientation)
+		{
+			var devices = AVCaptureDevice.DevicesWithMediaType (AVMediaType.Video);
+
+			foreach (var device in devices) {
+				if (device.Position == orientation) {
+					return device;
+				}
+			}
+
+			return null;
 		}
 
 		public async void CapturePhoto ()
