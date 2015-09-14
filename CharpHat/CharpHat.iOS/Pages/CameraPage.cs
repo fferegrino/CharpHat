@@ -63,7 +63,7 @@ namespace CharpHat.iOS.Pages
 			var buttonHeight = 70;
 
 			liveCameraStream = new UIView () {
-				Frame = new CGRect (0f, 0f, 320f, View.Bounds.Height)
+				Frame = new CGRect (0f, 0f, View.Bounds.Width, View.Bounds.Height)
 			};
 
 			takePhotoButton = new UIButton () {
