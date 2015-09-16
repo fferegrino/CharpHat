@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using Xamarin.Forms;
 
 namespace CharpHat.ViewModels
 {
@@ -22,8 +23,14 @@ namespace CharpHat.ViewModels
         public const string IconPropertyName = "Icon";
         public const string IsBusyPropertyName = "IsBusy";
 
+#if WINDOWS_PHONE_APP
         public event PropertyChangingEventHandler PropertyChanging;
         public event PropertyChangedEventHandler PropertyChanged;
+#else
+        public event PropertyChangingEventHandler PropertyChanging;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+#endif
 
         public BaseViewModel()
         {

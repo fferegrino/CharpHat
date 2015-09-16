@@ -45,6 +45,9 @@ namespace CharpHat.WinPhone
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+
+
+
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
@@ -63,6 +66,10 @@ namespace CharpHat.WinPhone
 
                 // TODO: change this value to a cache size that is appropriate for your application
                 rootFrame.CacheSize = 1;
+
+                // add this line
+                Xamarin.Forms.Forms.Init(e); // requires LaunchActivatedEventArgs
+                // above this existing line
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

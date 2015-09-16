@@ -51,7 +51,9 @@ namespace CharpHat.Pages
                 controlsStack.IsVisible = false;
                 var image = DependencyService.Get<IScreenshotService>().CaptureScreen();
                 var file = DependencyService.Get<IPictureManager>().SavePictureToDisk("CharpHatPic", "CharpHat", image);
+#if (__IOS__ || __ANDROID__)
                 Acr.UserDialogs.UserDialogs.Instance.ShowSuccess("Imagen guardada en la galería");
+#endif
                 controlsStack.IsVisible = true;
             };
 
@@ -166,7 +168,9 @@ namespace CharpHat.Pages
         protected override void OnAppearing()
         {
             base.OnAppearing();
+#if (__IOS__ || __ANDROID__)
             Acr.UserDialogs.UserDialogs.Instance.InfoToast("Instrucciones", "Mueve el sombrero con tu dedo", 2000);
+#endif
         }
     }
 }
