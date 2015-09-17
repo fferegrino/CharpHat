@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
+# Visual Studio 2012
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharpHat.iOS", "CharpHat.iOS\CharpHat.iOS.csproj", "{0B765D02-2078-4F39-8224-931B29151C4D}"
@@ -12,12 +12,6 @@ EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CharpHat.Shared", "CharpHat.Shared\CharpHat.Shared.shproj", "{98DCDCBE-C2D5-4F53-BBAF-5837F581B23D}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		CharpHat.Shared\CharpHat.projitems*{c7a36953-67d3-484a-9e77-2f3cbd364b42}*SharedItemsImports = 4
-		CharpHat.Shared\CharpHat.projitems*{0b765d02-2078-4f39-8224-931b29151c4d}*SharedItemsImports = 4
-		CharpHat.Shared\CharpHat.projitems*{3538462c-3cbf-4e5f-8887-cb16eec522e2}*SharedItemsImports = 4
-		CharpHat.Shared\CharpHat.projitems*{98dcdcbe-c2d5-4f53-bbaf-5837f581b23d}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
@@ -99,6 +93,12 @@ Global
 		{C7A36953-67D3-484A-9E77-2F3CBD364B42}.Release|x86.ActiveCfg = Release|x86
 		{C7A36953-67D3-484A-9E77-2F3CBD364B42}.Release|x86.Build.0 = Release|x86
 		{C7A36953-67D3-484A-9E77-2F3CBD364B42}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		CharpHat.Shared\CharpHat.projitems*{c7a36953-67d3-484a-9e77-2f3cbd364b42}*SharedItemsImports = 4
+		CharpHat.Shared\CharpHat.projitems*{0b765d02-2078-4f39-8224-931b29151c4d}*SharedItemsImports = 4
+		CharpHat.Shared\CharpHat.projitems*{3538462c-3cbf-4e5f-8887-cb16eec522e2}*SharedItemsImports = 4
+		CharpHat.Shared\CharpHat.projitems*{98dcdcbe-c2d5-4f53-bbaf-5837f581b23d}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

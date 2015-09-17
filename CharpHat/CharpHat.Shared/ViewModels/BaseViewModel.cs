@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
-using Xamarin.Forms;
-
+//using Xamarin.Forms;
 namespace CharpHat.ViewModels
 {
 #if WINDOWS_PHONE_APP

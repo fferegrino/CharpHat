@@ -101,50 +101,41 @@
     <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
-	
     <AndroidResource Include="Resources\drawable-hdpi\resize.png" />
     <AndroidResource Include="Resources\drawable-mdpi\resize.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\resize.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\resize.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\resize.png" />
-	
     <AndroidResource Include="Resources\drawable-hdpi\rotate.png" />
     <AndroidResource Include="Resources\drawable-mdpi\rotate.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\rotate.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\rotate.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\rotate.png" />
-	
     <AndroidResource Include="Resources\drawable-hdpi\ic_camera_front_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_camera_front_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_camera_front_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_camera_front_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_camera_front_white_24dp.png" />
-	
     <AndroidResource Include="Resources\drawable-hdpi\ic_camera_rear_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_camera_rear_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_camera_rear_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_camera_rear_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_camera_rear_white_24dp.png" />
-	
     <AndroidResource Include="Resources\drawable-hdpi\ic_cancel_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_cancel_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_cancel_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_cancel_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_cancel_white_24dp.png" />
-	
     <AndroidResource Include="Resources\drawable-hdpi\ic_rotate_left_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_rotate_left_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_rotate_left_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_rotate_left_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_rotate_left_white_24dp.png" />
-	
     <AndroidResource Include="Resources\drawable-hdpi\ic_photo_size_select_large_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_photo_size_select_large_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_photo_size_select_large_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_photo_size_select_large_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_photo_size_select_large_white_24dp.png" />
-	
-	
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\TakePhotoButton.png" />

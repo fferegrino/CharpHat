@@ -10,5 +10,7 @@ namespace CharpHat.Pages
 			NavigationPage.SetHasNavigationBar(this, false);
         }
 
+        
+
     }
 }

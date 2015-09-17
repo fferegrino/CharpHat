@@ -27,8 +27,9 @@ namespace CharpHat.iOS.Controls
 			originalHat = UIImage.FromFile ("CSharpHat.png").CGImage;
 			scale = ((nfloat)originalHat.Height) / originalHat.Width;
 			originalWidth = originalHat.Width;
-			_x = Bounds.Width / 2;
-			_x = Bounds.Height / 2;
+			var size = UIScreen.MainScreen.Bounds;
+			_x = size.Width / 2;
+			_y = size.Height / 2;
 			externScale = 1;
 			originalHeight = originalHat.Height;
 		}

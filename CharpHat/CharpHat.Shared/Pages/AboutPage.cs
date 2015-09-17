@@ -15,6 +15,8 @@ namespace CharpHat.Pages
 		public AboutPage ()
 		{
 
+			Title = "Acerca de";
+
 			coolImage = new Image { Source = "justCSharp.png" };
 
 			authorButton = new Button { Text = "Por Antonio Feregrino", Style = AppStyles.MainPageButtonStyle };

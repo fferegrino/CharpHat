@@ -34,7 +34,13 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Distribution: Antonio Feregrino</CodesignKey>
+    <CodesignProvision>341e6913-a9ea-45df-9ec8-ae3cfb3d8f09</CodesignProvision>
+    <MtouchSdkVersion>8.4</MtouchSdkVersion>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchI18n>
+    </MtouchI18n>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -124,15 +130,6 @@
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small%403x.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small-40.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small-40%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small-40%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json">
       <InProject>false</InProject>
     </ImageAsset>
@@ -173,11 +170,6 @@
     <Compile Include="Services\ScreenshotService.cs" />
     <Compile Include="Services\PictureManager.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\" />
-    <Folder Include="Pages\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
   <Import Project="..\CharpHat.Shared\CharpHat.projitems" Label="Shared" Condition="Exists('..\CharpHat.Shared\CharpHat.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.4.3.6376\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.3.6376\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -191,27 +183,21 @@
     <BundleResource Include="Resources\icon.png" />
     <BundleResource Include="Resources\TakePhotoButton.png" />
     <BundleResource Include="Resources\CSharpHat.png" />
-	
-	
     <BundleResource Include="Resources\ic_photo_size_select_large_white.png" />
-    <BundleResource Include="Resources\ic_photo_size_select_large_white@2x.png" />
-    <BundleResource Include="Resources\ic_photo_size_select_large_white@3x.png" />
-	
     <BundleResource Include="Resources\ic_rotate_left_white.png" />
-    <BundleResource Include="Resources\ic_rotate_left_white@2x.png" />
-    <BundleResource Include="Resources\ic_rotate_left_white@3x.png" />
-	
     <BundleResource Include="Resources\ic_camera_front_white.png" />
-    <BundleResource Include="Resources\ic_camera_front_white@2x.png" />
-    <BundleResource Include="Resources\ic_camera_front_white@3x.png" />
-	
     <BundleResource Include="Resources\ic_camera_rear_white.png" />
-    <BundleResource Include="Resources\ic_camera_rear_white@2x.png" />
-    <BundleResource Include="Resources\ic_camera_rear_white@3x.png" />
-	
     <BundleResource Include="Resources\ic_cancel_white.png" />
-    <BundleResource Include="Resources\ic_cancel_white@2x.png" />
-    <BundleResource Include="Resources\ic_cancel_white@3x.png" />
-	
+    <BundleResource Include="Resources\ic_photo_size_select_large_white%402x.png" />
+    <BundleResource Include="Resources\ic_photo_size_select_large_white%403x.png" />
+    <BundleResource Include="Resources\ic_rotate_left_white%402x.png" />
+    <BundleResource Include="Resources\ic_rotate_left_white%403x.png" />
+    <BundleResource Include="Resources\ic_camera_front_white%402x.png" />
+    <BundleResource Include="Resources\ic_camera_front_white%403x.png" />
+    <BundleResource Include="Resources\ic_camera_rear_white%402x.png" />
+    <BundleResource Include="Resources\ic_camera_rear_white%403x.png" />
+    <BundleResource Include="Resources\ic_cancel_white%402x.png" />
+    <BundleResource Include="Resources\ic_cancel_white%403x.png" />
+    <BundleResource Include="Resources\justCSharp.png" />
   </ItemGroup>
 </Project>
