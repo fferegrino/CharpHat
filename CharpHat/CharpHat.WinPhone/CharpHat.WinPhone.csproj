@@ -116,6 +116,12 @@
     <Content Include="Assets\StoreLogo.scale-140.png" />
     <Content Include="Assets\StoreLogo.scale-240.png" />
     <Content Include="Assets\WideLogo.scale-240.png" />
+    <Content Include="ic_camera_front_white_24dp.png" />
+    <Content Include="ic_camera_rear_white_24dp.png" />
+    <Content Include="ic_cancel_white_24dp.png" />
+    <Content Include="ic_photo_size_select_large_white_24dp.png" />
+    <Content Include="ic_rotate_left_white_24dp.png" />
+    <Content Include="justCSharp.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="StoreManifest.xml" />
     <Content Include="TakePhotoButton.png" />

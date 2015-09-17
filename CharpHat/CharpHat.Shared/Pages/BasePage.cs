@@ -12,8 +12,9 @@ namespace CharpHat.Pages
         {
             
             BackgroundColor = AppColors.LightPurple;
-			if(Device.OS == TargetPlatform.Android)
+#if (__ANDROID__ || WINDOWS_PHONE_APP)
             	NavigationPage.SetHasNavigationBar(this, false);
+#endif
             BaseToolbarItems = new ObservableCollection<ToolbarItem>();
         }
 

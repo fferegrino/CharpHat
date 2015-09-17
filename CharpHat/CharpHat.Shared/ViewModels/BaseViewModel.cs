@@ -23,7 +23,7 @@ namespace CharpHat.ViewModels
         public const string IsBusyPropertyName = "IsBusy";
 
 #if WINDOWS_PHONE_APP
-        public event PropertyChangingEventHandler PropertyChanging;
+        public event Xamarin.Forms.PropertyChangingEventHandler PropertyChanging;
         public event PropertyChangedEventHandler PropertyChanged;
 #else
         public event PropertyChangingEventHandler PropertyChanging;
@@ -83,7 +83,7 @@ namespace CharpHat.ViewModels
             if (PropertyChanging == null)
                 return;
 
-            PropertyChanging(this, new PropertyChangingEventArgs(propertyName));
+            PropertyChanging(this, new Xamarin.Forms.PropertyChangingEventArgs(propertyName));
         }
 
         public void OnPropertyChanged(string propertyName)
