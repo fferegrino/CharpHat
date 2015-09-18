@@ -15,7 +15,7 @@
     <AndroidApplication>True</AndroidApplication>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>CharpHat.Droid</AssemblyName>
-    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v5.1</TargetFrameworkVersion>
     <NuGetPackageImportStamp>6078b6d1</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -41,22 +41,6 @@
   <ItemGroup>
     <Reference Include="FormsViewGroup">
       <HintPath>..\packages\Xamarin.Forms.1.4.3.6376\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
-    </Reference>
-    <Reference Include="NControl, Version=0.2.5729.24380, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NControl.0.7\lib\MonoAndroid10\NControl.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="NControl.Droid, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NControl.0.7\lib\MonoAndroid10\NControl.Droid.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="NGraphics, Version=0.2.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NGraphics.0.3.1\lib\MonoAndroid10\NGraphics.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="NGraphics.Android, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NGraphics.0.3.1\lib\MonoAndroid10\NGraphics.Android.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -91,6 +75,18 @@
     </Reference>
     <Reference Include="Splat, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Splat.1.6.2\lib\monoandroid\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="NControl, Version=0.2.5729.24380, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\NControl.0.7\lib\MonoAndroid10\NControl.dll</HintPath>
+    </Reference>
+    <Reference Include="NControl.Droid, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\NControl.0.7\lib\MonoAndroid10\NControl.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="NGraphics, Version=0.2.2.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\NGraphics.0.3.1\lib\MonoAndroid10\NGraphics.dll</HintPath>
+    </Reference>
+    <Reference Include="NGraphics.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\NGraphics.0.3.1\lib\MonoAndroid10\NGraphics.Android.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

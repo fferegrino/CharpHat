@@ -83,7 +83,7 @@ namespace CharpHat.ViewModels
             if (PropertyChanging == null)
                 return;
 
-#if __ANDROID__
+			#if (__ANDROID__ || __IOS__)
 #else
             PropertyChanging(this, new Xamarin.Forms.PropertyChangingEventArgs(propertyName));
 #endif

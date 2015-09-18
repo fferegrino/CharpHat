@@ -1,6 +1,7 @@
 ﻿using Foundation;
 using UIKit;
 using CharpHat.Helpers;
+using NControl.iOS;
 
 namespace CharpHat.iOS
 {
@@ -15,9 +16,10 @@ namespace CharpHat.iOS
 		{
 			UINavigationBar.Appearance.BarTintColor = AppColors.LightPurple.ToPlatformColor ();
 			UINavigationBar.Appearance.TintColor = AppColors.DarkPurple.ToPlatformColor ();
-				Xamarin.Forms.Forms.Init ();
+			Xamarin.Forms.Forms.Init ();
+			NControlViewRenderer.Init ();
+
 			LoadApplication (new App ());
-		
 			return base.FinishedLaunching(application,launchOptions);
 		}
 
