@@ -9,24 +9,25 @@ using Android.OS;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using CharpHat.Droid.Services;
+using NControl.Droid;
 
 namespace CharpHat.Droid
 {
-	[Activity (Label = "CharpHat", MainLauncher = true, Icon = "@drawable/icon")]
-	public class MainActivity : FormsApplicationActivity
-	{
-		protected override void OnCreate (Bundle bundle)
-		{
+    [Activity(Label = "CharpHat", MainLauncher = true, Icon = "@drawable/icon")]
+    public class MainActivity : FormsApplicationActivity
+    {
+        protected override void OnCreate(Bundle bundle)
+        {
             base.OnCreate(bundle);
 
             Forms.Init(this, bundle);
             LoadApplication(new App());
             Acr.UserDialogs.UserDialogs.Init(this);
-
+            NControlViewRenderer.Init();
             // Screenshot service
             ScreenshotService.Activity = this;
-		}
-	}
+        }
+    }
 }
 
 
