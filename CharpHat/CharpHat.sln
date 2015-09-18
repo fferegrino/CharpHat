@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.31101.0
@@ -28,6 +27,7 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{0B765D02-2078-4F39-8224-931B29151C4D}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{0B765D02-2078-4F39-8224-931B29151C4D}.Debug|Any CPU.Build.0 = Debug|iPhone
 		{0B765D02-2078-4F39-8224-931B29151C4D}.Debug|ARM.ActiveCfg = Debug|iPhone
 		{0B765D02-2078-4F39-8224-931B29151C4D}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{0B765D02-2078-4F39-8224-931B29151C4D}.Debug|iPhone.Build.0 = Debug|iPhone

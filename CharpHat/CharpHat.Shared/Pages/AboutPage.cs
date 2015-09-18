@@ -37,7 +37,7 @@ namespace CharpHat.Pages
 				Device.OpenUri(new Uri("https://github.com/fferegrino/CharpHat/blob/master/README.md"));
 			};
 
-			Content = new StackLayout
+			Content = new ScrollView { Content =  new StackLayout
 			{
 				VerticalOptions = LayoutOptions.Center,
 				Padding = new Thickness(0,20,0,0),
@@ -48,7 +48,7 @@ namespace CharpHat.Pages
 					madeWithButton,
 					openSourceButton
 				}
-			};
+				} };
 		}
 	}
 }
