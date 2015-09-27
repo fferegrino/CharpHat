@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CharpHatApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\SvgStickerView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\StickerableImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\AppColors.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\AppIcons.cs" />
@@ -19,6 +20,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\BasePage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\LandingPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\ManipulatePhotoPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\SvgManipulatePhotoPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\SvgStickerView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IPictureManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IScreenshotService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />

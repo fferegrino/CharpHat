@@ -149,7 +149,7 @@ namespace CharpHat.iOS.Pages
 
 		public async Task SendPhoto (byte[] image)
 		{
-			var navigationPage = new NavigationPage (new ManipulatePhotoPage (image)) {
+			var navigationPage = new NavigationPage (new SvgManipulatePhotoPage (image)) {
 			};
 
 			await Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync (navigationPage, false);

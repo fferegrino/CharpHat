@@ -203,7 +203,7 @@ namespace CharpHat.Droid.Pages
                 imageBytes = imageStream.ToArray();
             }
 
-            var manipulatePic = (new ManipulatePhotoPage(imageBytes));
+            var manipulatePic = (new SvgManipulatePhotoPage(imageBytes));
 
             Acr.UserDialogs.UserDialogs.Instance.HideLoading();
 
