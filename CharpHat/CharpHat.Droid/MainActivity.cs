@@ -13,8 +13,8 @@ using NControl.Droid;
 
 namespace CharpHat.Droid
 {
-    [Activity(Label = "CharpHat", MainLauncher = true, Icon = "@drawable/icon")]
-    public class MainActivity : FormsApplicationActivity
+    [Activity(Label = "CharpHat", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/Theme.AppCompat.Light.NoActionBar")]
+    public class MainActivity : FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -24,6 +24,7 @@ namespace CharpHat.Droid
             LoadApplication(new App());
             Acr.UserDialogs.UserDialogs.Init(this);
             NControlViewRenderer.Init();
+
             // Screenshot service
             ScreenshotService.Activity = this;
         }
