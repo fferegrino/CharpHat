@@ -26,6 +26,7 @@ using Android.Hardware.Camera2.Params;
 using Java.Util;
 using System.Linq;
 using CharpHat.Listeners;
+using System.IO;
 
 [assembly: Forms.ExportRenderer(typeof(CharpHat.Pages.CameraPage), typeof(CharpHat.Droid.Pages.CameraPageRenderer))]
 namespace CharpHat.Droid.Pages
@@ -36,10 +37,12 @@ namespace CharpHat.Droid.Pages
      */
     public class CameraPageRenderer : PageRenderer,
         View.IOnClickListener,
-        ActivityCompat.IOnRequestPermissionsResultCallback
+        ActivityCompat.IOnRequestPermissionsResultCallback,
+        ImageReader.IOnImageAvailableListener
     {
 
         View view;
+        Button takePhotoButton;
         public Activity Activity => Context as Activity;
 
         protected override void OnElementChanged(ElementChangedEventArgs<Forms.Page> e)
@@ -50,19 +53,15 @@ namespace CharpHat.Droid.Pages
 
 
             mSurfaceTextureListener = new TextureViewSurfaceTextureListener(this);
-            mOnImageAvailableListener = new ImageReaderOnImageAvailableListener(this);
             mStateCallback = new CameraDeviceStateCallback(this);
-            mOnImageAvailableListener = new ImageReaderOnImageAvailableListener(this);
+            CaptureCallback = new CameraCaptureSessionCaptureCallback(this);
 
 
-            
-             view = Activity.LayoutInflater.Inflate(Resource.Layout.CameraLayout, this, false);
+
+            view = Activity.LayoutInflater.Inflate(Resource.Layout.CameraLayout, this, false);
             //view.FindViewById(Resource.Id.picture).SetOnClickListener(this);
             //view.FindViewById(Resource.Id.info).SetOnClickListener(this);
             TextureView = view.FindViewById<TextureView>(Resource.Id.textureView);
-
-            mFile = new File(Activity.GetExternalFilesDir(null), "pic.jpg");
-
 
             StartBackgroundThread();
 
@@ -81,11 +80,8 @@ namespace CharpHat.Droid.Pages
             }
 
 
-            //textureView = view.FindViewById<TextureView>(Resource.Id.textureView);
-            //textureView.SurfaceTextureListener = this;
-
-            //takePhotoButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.takePhotoButton);
-            //takePhotoButton.Click += TakePhotoButtonTapped;
+            takePhotoButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.takePhotoButton);
+            takePhotoButton.Click += TakePhotoButtonTapped;
 
             //switchCameraButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.switchCameraButton);
             //switchCameraButton.Click += SwitchCameraButtonTapped;
@@ -110,6 +106,12 @@ namespace CharpHat.Droid.Pages
 
             view.Measure(msw, msh);
             view.Layout(0, 0, r - l, b - t);
+        }
+
+        private async void TakePhotoButtonTapped(object sender, EventArgs e)
+        {
+            TakePicture();
+            //await App.Current.MainPage.Navigation.PushAsync(manipulatePic, false);
         }
 
         private void RequestCameraPermission()
@@ -176,7 +178,7 @@ namespace CharpHat.Droid.Pages
                             Arrays.AsList(map.GetOutputSizes((int)ImageFormatType.Jpeg)),
                             new CompareSizesByArea());
                     mImageReader = ImageReader.NewInstance(largest.Width, largest.Height, ImageFormatType.Jpeg, 2);
-                    mImageReader.SetOnImageAvailableListener(mOnImageAvailableListener, BackgroundHandler);
+                    mImageReader.SetOnImageAvailableListener(this, BackgroundHandler);
 
                     // Find out if we need to swap dimension to get the preview size relative to sensor
                     // coordinate.
@@ -631,7 +633,7 @@ namespace CharpHat.Droid.Pages
         /// <summary>
         /// The CameraDeviceStateCallback is called when CameraDevice changes its state
         /// </summary>
-         CameraDeviceStateCallback mStateCallback;
+        CameraDeviceStateCallback mStateCallback;
 
         /// <summary>
         /// An additional thread for running tasks that shouldn't block the UI
@@ -647,17 +649,6 @@ namespace CharpHat.Droid.Pages
         /// An ImageReader that handlers still image capture
         /// </summary>
         ImageReader mImageReader;
-
-        /// <summary>
-        /// This is the output file for our picture
-        /// </summary>
-        public File mFile { get; private set; }
-
-        /// <summary>
-        /// This a callback object for the ImageReader. "onImageAvailable" will be called 
-        /// when a still image is ready to be saved.
-        /// </summary>
-         ImageReaderOnImageAvailableListener mOnImageAvailableListener;
 
         /// <summary>
         /// CaptureRequest.Builder for the camera preview
@@ -767,6 +758,36 @@ namespace CharpHat.Droid.Pages
             }
         }
         #endregion
+
+
+        public async void OnImageAvailable(ImageReader reader)
+        {
+            var image = reader.AcquireNextImage();
+            var plane = image.GetPlanes()[0];
+            var buffer = plane.Buffer;
+            byte[] paso = new byte[buffer.Remaining()];
+            buffer.Get(paso);
+
+
+            // ??????Bitmap???
+            Bitmap bitmap =await BitmapFactory.DecodeByteArrayAsync(paso, 0, paso.Length);
+            
+
+            byte[] imageBytes = null;
+            using (var imageStream = new MemoryStream())
+            {
+                await bitmap.CompressAsync(Bitmap.CompressFormat.Jpeg, 50, imageStream);
+                bitmap.Recycle();
+                imageBytes = imageStream.ToArray();
+            }
+            image.Close();
+
+            var manipulatePic = (new SvgManipulatePhotoPage(imageBytes));
+            Xamarin.Forms.Device.BeginInvokeOnMainThread(async () =>
+            {
+                await App.Current.MainPage.Navigation.PushAsync(manipulatePic, false);
+            });
+        }
 
     }
 }

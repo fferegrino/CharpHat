@@ -18,8 +18,6 @@ namespace CharpHat
 
         public override void OnCaptureCompleted(CameraCaptureSession session, CaptureRequest request, TotalCaptureResult result)
         {
-            Parent.ShowToast("Saved: " + Parent.mFile);
-            Log.Debug(CameraPageRenderer.Tag, Parent.mFile.ToString());
             Parent.UnlockFocus();
         }
     }

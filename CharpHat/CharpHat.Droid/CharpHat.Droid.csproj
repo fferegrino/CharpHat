@@ -134,7 +134,6 @@
     <Compile Include="Listeners\CameraCaptureSessionCaptureCallback2.cs" />
     <Compile Include="Listeners\CameraCaptureSessionStateCallback.cs" />
     <Compile Include="Listeners\CameraDeviceStateCallback.cs" />
-    <Compile Include="Listeners\ImageReaderOnImageAvailableListener.cs" />
     <Compile Include="Listeners\TextureViewSurfaceTextureListener.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Pages\CameraPageRenderer.cs" />
