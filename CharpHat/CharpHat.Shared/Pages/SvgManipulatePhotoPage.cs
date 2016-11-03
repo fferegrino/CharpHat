@@ -10,13 +10,14 @@ using System.Linq;
 //using System.Reflection.Emit;
 using System.Text;
 using Xamarin.Forms;
+using CharpHat.Services;
 
 namespace CharpHat.Pages
 {
     public class SvgManipulatePhotoPage : BasePage
     {
 
-        Graphic _originalCharpHat;
+		Graphic _originalCharpHat;
         SvgStickerView _stickerSurface;
         Slider rotationSlider;
         Slider scaleSlider;
@@ -51,7 +52,17 @@ namespace CharpHat.Pages
                 _stickerSurface.ScaleFactor = (float)e.NewValue;
             };
 
+			continueButton.Clicked += ContinueButton_Clicked;
         }
+
+		void ContinueButton_Clicked(object sender, EventArgs e)
+		{
+			controlsStack.IsVisible = false;
+			var image = DependencyService.Get<IScreenshotService>().CaptureScreen();
+			DependencyService.Get<IPictureManager>().SavePictureToDisk("CharpHatPic", "CharpHat", image);
+			Acr.UserDialogs.UserDialogs.Instance.ShowSuccess("Imagen guardada en la galería");
+			controlsStack.IsVisible = true;
+		}
 
         private void LoadResources()
         {
