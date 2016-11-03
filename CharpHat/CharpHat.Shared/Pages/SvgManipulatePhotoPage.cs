@@ -79,6 +79,7 @@ namespace CharpHat.Pages
                 {
                     HorizontalOptions = LayoutOptions.FillAndExpand,
                     VerticalOptions = LayoutOptions.FillAndExpand,
+					Aspect = Aspect.Fill,
                     Source = ImageSource.FromStream(() => new MemoryStream(ViewModel.Image)),
                 };
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -8,28 +8,30 @@
         android:id="@+id/textureView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
-		
-	<Button
+    <Button
         android:id="@+id/cancelPhotoButton"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_gravity="top|left"
-        android:layout_marginLeft="25dp"
+        android:layout_marginRight="40dp"
         android:layout_marginTop="25dp"
-        android:background="@drawable/ic_cancel_white_24dp" />
-	<Button
+        android:background="@drawable/ic_cancel_white_24dp"
+        android:layout_alignRight="@id/textureView" />
+    <Button
         android:id="@+id/switchCameraButton"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_gravity="top|right"
-        android:layout_marginRight="25dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="25dp"
         android:background="@drawable/ic_camera_front_white_24dp" />
     <Button
         android:id="@+id/takePhotoButton"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="25dp"
         android:layout_gravity="center|bottom"
-        android:background="@drawable/TakePhotoButton" />
-</FrameLayout>
+        android:background="@drawable/TakePhotoButton"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@id/textureView" />
+</RelativeLayout>

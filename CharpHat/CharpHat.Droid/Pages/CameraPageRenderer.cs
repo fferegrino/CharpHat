@@ -27,6 +27,8 @@ using Java.Util;
 using System.Linq;
 using CharpHat.Listeners;
 using System.IO;
+using Java.Nio;
+using Android.Renderscripts;
 
 [assembly: Forms.ExportRenderer(typeof(CharpHat.Pages.CameraPage), typeof(CharpHat.Droid.Pages.CameraPageRenderer))]
 namespace CharpHat.Droid.Pages
@@ -173,10 +175,11 @@ namespace CharpHat.Droid.Pages
                         continue;
                     }
 
-                    // For still image captures, we use the largest available size.
-                    Size largest = (Size)Collections.Max(
-                            Arrays.AsList(map.GetOutputSizes((int)ImageFormatType.Jpeg)),
-                            new CompareSizesByArea());
+					// For still image captures, we use the largest available size.
+					var outputSizes = Arrays.AsList(map.GetOutputSizes((int)ImageFormatType.Jpeg));
+
+
+					Size largest = (Size)outputSizes[outputSizes.Count / 2];//Collections.Min(outputSizes,new CompareSizesByArea());
                     mImageReader = ImageReader.NewInstance(largest.Width, largest.Height, ImageFormatType.Jpeg, 2);
                     mImageReader.SetOnImageAvailableListener(this, BackgroundHandler);
 
@@ -768,21 +771,19 @@ namespace CharpHat.Droid.Pages
             byte[] paso = new byte[buffer.Remaining()];
             buffer.Get(paso);
 
-
-            // ??????Bitmap???
-            Bitmap bitmap =await BitmapFactory.DecodeByteArrayAsync(paso, 0, paso.Length);
+            //Bitmap bitmap =await BitmapFactory.DecodeByteArrayAsync(paso, 0, paso.Length);
             
 
-            byte[] imageBytes = null;
-            using (var imageStream = new MemoryStream())
-            {
-                await bitmap.CompressAsync(Bitmap.CompressFormat.Jpeg, 50, imageStream);
-                bitmap.Recycle();
-                imageBytes = imageStream.ToArray();
-            }
-            image.Close();
+            //byte[] imageBytes = null;
+            //using (var imageStream = new MemoryStream())
+            //{
+            //    await bitmap.CompressAsync(Bitmap.CompressFormat.Jpeg, 50, imageStream);
+            //    bitmap.Recycle();
+            //    imageBytes = imageStream.ToArray();
+            //}
+            //image.Close();
 
-            var manipulatePic = (new SvgManipulatePhotoPage(imageBytes));
+            var manipulatePic = (new SvgManipulatePhotoPage(paso));
             Xamarin.Forms.Device.BeginInvokeOnMainThread(async () =>
             {
                 await App.Current.MainPage.Navigation.PushAsync(manipulatePic, false);
